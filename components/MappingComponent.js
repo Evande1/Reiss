@@ -4,6 +4,7 @@ import MapViewDirections from 'react-native-maps-directions';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 
+const GOOGLE_MAPS_APIKEY = 'AIzaSyDtFrz2OwplStRTnHSBIsljuL5Oh9XNoTA';
 const origin = { latitude: 1.3584168333017268, longitude: 103.70746290442666 };
 const destination = {
   latitude: 1.3500577333970956,
@@ -30,7 +31,6 @@ function MappingComponent() {
       setLocation(location);
     })();
   }, []);
-
   let text = 'Waiting..';
   if (errorMsg) {
     text = errorMsg;
@@ -39,6 +39,33 @@ function MappingComponent() {
   }
   // get current location
   console.log(text);
+
+  const [markers, setMarkers] = useState([
+    origin,
+    destination,
+    secondDestination,
+  ]);
+  const renderedMarker = [];
+  for (let i = 0; i < markers.length; i++) {
+    renderedMarker.push(<Marker key={i} coordinate={markers[i]}></Marker>);
+  }
+
+  const [directions, setDirections] = useState();
+  const renderedDirections = [];
+  for (let i = 0; i < markers.length; i++) {
+    // only push if there is more than  1 marker
+    if (markers.length > 1 && i < markers.length) {
+      renderedDirections.push(
+        <MapViewDirections
+          key={i}
+          origin={markers[i]}
+          destination={markers[i + 1]}
+          apikey={GOOGLE_MAPS_APIKEY}
+        />
+      );
+    }
+  }
+
   return (
     <MapView
       style={styles.map}
@@ -48,8 +75,11 @@ function MappingComponent() {
         latitudeDelta: 0.005,
         longitudeDelta: 0.005,
       }}
+      onPress={(event) =>
+        setMarkers([...markers, event.nativeEvent.coordinate])
+      }
     >
-      <MapViewDirections
+      {/* <MapViewDirections
         origin={origin}
         destination={destination}
         apikey={GOOGLE_MAPS_APIKEY}
@@ -58,10 +88,14 @@ function MappingComponent() {
         origin={destination}
         destination={secondDestination}
         apikey={GOOGLE_MAPS_APIKEY}
-      />
-      <Marker coordinate={origin} />
+      /> */}
+      {renderedDirections}
+      {renderedMarker}
+
+      {/* <Marker coordinate={origin} />
       <Marker coordinate={destination} />
-      <Marker coordinate={secondDestination} />
+      <Marker coordinate={secondDestination} /> */}
+      {/* onPress = {(event) => console.log('test')} */}
     </MapView>
   );
 }
