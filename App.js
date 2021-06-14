@@ -11,6 +11,7 @@ import FeedScreen from './screens/FeedScreen';
 import HistoryScreen from './screens/HistoryScreen';
 import ResultScreen from './screens/ResultScreen';
 import MappingScreen from './screens/MappingScreen';
+import TestScreen from './screens/TestScreen';
 
 const Drawer = createDrawerNavigator();
 const HomeStack = createStackNavigator();
