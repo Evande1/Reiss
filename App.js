@@ -7,7 +7,6 @@ import FeedScreen from './screens/FeedScreen';
 import HistoryScreen from './screens/HistoryScreen';
 import ResultScreen from './screens/ResultScreen';
 import MappingScreen from './screens/MappingScreen';
-import TestScreen from './screens/TestScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -20,7 +19,6 @@ export default function App() {
         <Drawer.Screen name='History' component={HistoryScreen} />
         <Drawer.Screen name='Result' component={ResultScreen} />
         <Drawer.Screen name='Mapping' component={MappingScreen} />
-        <Drawer.Screen name='Test' component={TestScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
