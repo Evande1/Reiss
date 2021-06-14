@@ -13,9 +13,8 @@ const secondDestination = {
   latitude: 1.3316125813561035,
   longitude: 103.72105779063803,
 };
-const GOOGLE_MAPS_APIKEY = 'AIzaSyDe-UrZRyxBfGKKmBTdH6APPSolGJQnCcI';
 
-function MappingComponent({ navigation }) {
+function MappingComponent() {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
