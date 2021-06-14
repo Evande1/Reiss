@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, Modal } from 'react-native';
+import { createStackNavigator } from "@react-navigation/stack";
 
 function MappingScreen({ navigation }) {
   return (
@@ -10,3 +11,4 @@ function MappingScreen({ navigation }) {
 }
 
 export default MappingScreen;
+
