@@ -13,12 +13,6 @@ import StartButtonHome from "./StartButtonHome";
 import { Entypo } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
-{
-  /* <Entypo name="traffic-cone" size={24} color="black" /> */
-  // <Ionicons name="people" size={24} color="black" />
-  // <Entypo name="circle-with-cross" size={24} color="black" />
-}
-
 const MarkerComponent = (props) => {
   const dangerType = function () {
     const dangerTypeCheck = props.text.toLowerCase().split(" ")[0][0];
