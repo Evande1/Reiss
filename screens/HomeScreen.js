@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
 
 const Stack = createStackNavigator();
 
-export default function HomeScreenStack() {
+export default function HomeScreenStack({navigation}) {
   return (
     <Stack.Navigator
       screenOptions={{

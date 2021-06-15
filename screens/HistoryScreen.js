@@ -50,37 +50,75 @@ const arr = [
   },
 ];
 
-function HistoryScreen({ navigation }) {
-  const renderedArr = [];
-  // for( let i = 0 ; i < arr.length ;i++ ) {
-  //   renderedArr.push(
-
-  //   )
-  // }
+const FlatListHeader = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center' }}>
+    <View
+      elevation={1}
+      style={{
+        height: 100,
+        width: 1000,
+        margin: 5,
+        backgroundColor: '#fff',
+        alignSelf: 'center',
+      }}
+    >
+      <Text
+        style={{
+          fontSize: 40,
+          fontWeight: '800',
+          flex: 1,
+          alignSelf: 'center',
+          paddingTop: 30,
+          fontSize: 40,
+        }}
+      >
+        Recent Runs
+      </Text>
+    </View>
+  );
+};
+
+function HistoryScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1 }}>
       <View style={styles.container}>
         <FlatList
           data={arr}
           renderItem={({ item }) => (
-            <View>
-              <Text>{item.title}</Text>
-              <Text>{item.startTime}</Text>
-              <Text>{item.crowdLevel}</Text>
-              <Text>{item.dangers}</Text>
-              <Text>{item.pace}</Text>
-              <Text>{item.totalDistance}</Text>
+            <View style={{ height: 100 }}>
+              <TouchableOpacity>
+                <Text style={styles.tag}>
+                  <Text style={{ fontWeight: 'bold' }}>{item.title}</Text>
+                  <Text>
+                    {'\n'}
+                    {item.startTime}
+                    {'\n'}Crowd Level:{' '}
+                  </Text>
+                  <Text style={{ fontWeight: 'bold' }}>
+                    {item.crowdLevel}
+                    {'\n'}
+                  </Text>
+                  <Text>Dangers:</Text>
+                  <Text style={{ fontWeight: 'bold' }}>{item.dangers}</Text>
+                  <Text>
+                    {'\n'}
+                    Pace: {item.pace}
+                    {'\n'}
+                    Total Distance: {item.totalDistance}
+                  </Text>
+                </Text>
+              </TouchableOpacity>
             </View>
           )}
+          ListHeaderComponent={FlatListHeader}
         />
       </View>
-      <Text>Hi</Text>
       <Button onPress={() => navigation.goBack()} title='Go back home' />
     </View>
   );
 }
-const HistoryStack = createStackNavigator();
 
+const HistoryStack = createStackNavigator();
 const HistoryStackScreen = ({ navigation }) => (
   <HistoryStack.Navigator
     screenOptions={{
