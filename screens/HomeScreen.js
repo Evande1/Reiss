@@ -11,21 +11,16 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import SelectRoute from "../components/SelectRoute";
-import ComponentButton from "../components/ComponentButton";
+import StartButton from "../components/StartButton";
 
 function HomeScreen({ navigation }) {
   const [inModalMode, setInModalMode] = useState(false);
 
   const cancelInModalMode = () => setInModalMode(false);
 
-  const goPastRoutes = () => {
+  const SelectRoutes = () => {
     cancelInModalMode();
     navigation.navigate("PastRoutes");
-  };
-
-  const goMappedRoutes = () => {
-    cancelInModalMode();
-    navigation.navigate("MappedRoutes");
   };
 
   const username = "JYP";
@@ -39,7 +34,7 @@ function HomeScreen({ navigation }) {
           <Text style={styles.startPopUpText1}>{text1}</Text>
           <Text style={styles.startPopUpText2}>{text2}</Text>
         </View>
-        <ComponentButton
+        <StartButton
           text="Start"
           color="black"
           onPress={() => setInModalMode(true)}
@@ -106,6 +101,7 @@ const styles = StyleSheet.create({
     color: "black",
     textAlign: "center",
     fontSize: 15,
+    fontWeight: "300",
   },
 
   startButton: {
