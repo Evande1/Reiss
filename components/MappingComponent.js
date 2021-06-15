@@ -5,15 +5,14 @@ import MapView, { Marker } from 'react-native-maps';
 import { ActivityIndicator } from 'react-native';
 import * as Location from 'expo-location';
 
-const GOOGLE_MAPS_APIKEY = 123;
-
-function MappingComponent() {
+function MappingComponent({ testProp }) {
+  console.log(testProp);
   // loading state
   // distance state
   const [distance, setDistance] = useState(0);
 
   const [markers, setMarkers] = useState([]);
-  const renderedDirections = [];
+  let renderedDirections = [];
   const renderedMarker = [];
 
   // this whole portion below is to get the current location of the person.  I console.log the data so you can see it in the terminal.
@@ -36,6 +35,11 @@ function MappingComponent() {
       },
     ]);
   };
+
+  useEffect(() => {
+    renderedDirections = [];
+    setMarkers([markers[0]]);
+  }, [testProp]);
 
   useEffect(() => {
     getLocation();
@@ -73,6 +77,18 @@ function MappingComponent() {
       }
     }
   }
+  const CustomMarker = () => (
+    <View
+      style={{
+        paddingVertical: 5,
+        backgroundColor: '#007bff',
+        borderColor: '#eee',
+        borderRadius: 5,
+      }}
+    >
+      <Text style={{ color: '#fff' }}>Berlin</Text>
+    </View>
+  );
   if (text === 'Waiting..') {
     return (
       <View>
@@ -104,7 +120,14 @@ function MappingComponent() {
         {renderedDirections}
         {renderedMarker}
         {/* Example of marker coordinate */}
-        {/* <Marker coordinate={origin} /> */}
+        <Marker
+          coordinate={{
+            latitude: 1.3493511621188985,
+            longitude: 103.72356312969188,
+          }}
+        >
+          <CustomMarker />
+        </Marker>
       </MapView>
       {/* need to add further styling */}
       <Text>Distance: {distance}</Text>
