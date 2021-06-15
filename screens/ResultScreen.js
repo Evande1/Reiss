@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, Modal } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 function ResultScreen({ navigation }) {
   return (
@@ -8,5 +10,36 @@ function ResultScreen({ navigation }) {
     </View>
   );
 }
+const ResultStack = createStackNavigator();
 
-export default ResultScreen;
+const ResultStackScreen = ({ navigation }) => (
+  <ResultStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#009387',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}
+  >
+    <ResultStack.Screen
+      name='Result'
+      component={ResultScreen}
+      options={{
+        title: 'Result',
+        headerLeft: () => (
+          <Icon.Button
+            name='ios-menu'
+            size={25}
+            backgroundColor='#009387'
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
+    />
+  </ResultStack.Navigator>
+);
+
+export default ResultStackScreen;

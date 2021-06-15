@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, Modal } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 function HistoryScreen({ navigation }) {
   return (
@@ -8,5 +10,36 @@ function HistoryScreen({ navigation }) {
     </View>
   );
 }
+const HistoryStack = createStackNavigator();
 
-export default HistoryScreen;
+const HistoryStackScreen = ({ navigation }) => (
+  <HistoryStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#009387',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}
+  >
+    <HistoryStack.Screen
+      name='History'
+      component={HistoryScreen}
+      options={{
+        title: 'History',
+        headerLeft: () => (
+          <Icon.Button
+            name='ios-menu'
+            size={25}
+            backgroundColor='#009387'
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
+    />
+  </HistoryStack.Navigator>
+);
+
+export default HistoryStackScreen;

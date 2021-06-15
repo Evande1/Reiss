@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,19 +6,21 @@ import {
   Button,
   Modal,
   TouchableOpacity,
-} from "react-native";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
-import SelectRoute from "../components/SelectRoute";
-import ComponentButton from "../components/ComponentButton";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import SelectRoute from '../components/SelectRoute';
+import ComponentButton from '../components/ComponentButton';
 
 function HomeScreen({ navigation }) {
   const [inModalMode, setInModalMode] = useState(false);
 
   const cancelInModalMode = () => setInModalMode(false);
 
-  const username = "JYP";
+  const username = 'JYP';
   const text1 = `Good Morning ${username}`.toUpperCase();
   const text2 = "The grind don't stop".toUpperCase();
 
@@ -34,8 +36,8 @@ function HomeScreen({ navigation }) {
           <Text style={styles.startPopUpText2}>{text2}</Text>
         </View>
         <ComponentButton
-          text="Start"
-          color="black"
+          text='Start'
+          color='black'
           onPress={() => setInModalMode(true)}
         />
         <SelectRoute visible={inModalMode} onCancel={cancelInModalMode} />
@@ -49,49 +51,49 @@ const styles = StyleSheet.create({
     marginTop: 15,
     padding: 20,
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "space-between",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 
   header: {
-    width: "100%",
-    maxHeight: "10%",
+    width: '100%',
+    maxHeight: '10%',
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#1D2027",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#1D2027',
   },
 
   headerText: {
-    fontWeight: "bold",
-    color: "white",
+    fontWeight: 'bold',
+    color: 'white',
   },
 
   startPopUp: {
-    width: "100%",
-    maxHeight: "30%",
-    backgroundColor: "#f48731",
+    width: '100%',
+    maxHeight: '30%',
+    backgroundColor: '#f48731',
     flex: 1,
-    alignItems: "center",
-    justifyContent: "space-evenly",
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
   },
 
   startPopUpText1: {
-    color: "black",
-    fontWeight: "bold",
+    color: 'black',
+    fontWeight: 'bold',
     fontSize: 30,
   },
 
   startPopUpText2: {
-    color: "black",
+    color: 'black',
     fontSize: 20,
   },
 
   startButton: {
-    width: "80%",
-    backgroundColor: "black",
-    color: "white",
+    width: '80%',
+    backgroundColor: 'black',
+    color: 'white',
     padding: 20,
     borderRadius: 30,
   },
@@ -108,5 +110,35 @@ const styles = StyleSheet.create({
 //     </View>
 //   );
 // }
+const HomeStack = createStackNavigator();
+const HomeStackScreen = ({ navigation }) => (
+  <HomeStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#009387',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}
+  >
+    <HomeStack.Screen
+      name='Home'
+      component={HomeScreen}
+      options={{
+        title: 'Home',
+        headerLeft: () => (
+          <Icon.Button
+            name='ios-menu'
+            size={25}
+            backgroundColor='#009387'
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
+    />
+  </HomeStack.Navigator>
+);
 
-export default HomeScreen;
+export default HomeStackScreen;
