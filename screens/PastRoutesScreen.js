@@ -55,7 +55,10 @@ function PastRoutesScreen({ navigation }) {
         <FlatList
           data={arr}
           renderItem={({ item }) => (
-            <Text style={styles.item}>{item.startTime}</Text>
+            <View>
+              <Text style={styles.item}>{item.startTime}</Text>
+              <Text style={styles.item}>{item.totalDistance}</Text>
+            </View>
           )}
         />
       </View>
