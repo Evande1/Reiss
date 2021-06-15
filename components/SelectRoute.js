@@ -25,15 +25,10 @@ const SelectRoute = (props) => {
             <SelectRouteButton
               text="Select Route"
               color={styles.modalContainer.backgroundColor}
-              onPress={props.SelectRoutes}
             />
           </View>
           <View>
-            <StartButton
-              text="Start"
-              color="black"
-              onPress={props.goMappedRoutes}
-            />
+            <StartButton text="Start" color="black" />
           </View>
         </TouchableOpacity>
       </TouchableOpacity>

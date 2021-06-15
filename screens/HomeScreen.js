@@ -39,12 +39,7 @@ function HomeScreen({ navigation }) {
           color="black"
           onPress={() => setInModalMode(true)}
         />
-        <SelectRoute
-          visible={inModalMode}
-          onCancel={cancelInModalMode}
-          goPastRoutes={goPastRoutes}
-          goMappedRoutes={goMappedRoutes}
-        />
+        <SelectRoute visible={inModalMode} onCancel={cancelInModalMode} />
       </View>
     </View>
   );
@@ -64,7 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: "center",
   },
 
   header: {
@@ -119,12 +114,31 @@ export default function HomeScreenStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: "#009387",
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
       }}
     >
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="PastRoutes" component={PastRoutes} />
-      <Stack.Screen name="MappedRoutes" component={MappedRoutes} />
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={({ navigation }) => ({
+          title: "Home",
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              backgroundColor="#009387"
+              onPress={() => navigation.openDrawer()}
+            ></Icon.Button>
+          ),
+        })}
+      />
     </Stack.Navigator>
   );
 }
@@ -140,3 +154,36 @@ export default function HomeScreenStack() {
 //     </View>
 //   );
 // }
+
+// const HomeStack = createStackNavigator();
+// const HomeStackScreen = ({ navigation }) => (
+//   <HomeStack.Navigator
+//     screenOptions={{
+//       headerStyle: {
+//         backgroundColor: '#009387',
+//       },
+//       headerTintColor: '#fff',
+//       headerTitleStyle: {
+//         fontWeight: 'bold',
+//       },
+//     }}
+//   >
+//     <HomeStack.Screen
+//       name='Home'
+//       component={HomeScreen}
+//       options={{
+//         title: 'Home',
+//         headerLeft: () => (
+//           <Icon.Button
+//             name='ios-menu'
+//             size={25}
+//             backgroundColor='#009387'
+//             onPress={() => navigation.openDrawer()}
+//           ></Icon.Button>
+//         ),
+//       }}
+//     />
+//   </HomeStack.Navigator>
+// );
+
+// export default HomeStackScreen;
