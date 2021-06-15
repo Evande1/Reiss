@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Modal } from 'react-native';
+import { StyleSheet, Text, View, Button, Modal, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
+
 
 import Animated from 'react-native-reanimated';
 import BottomSheet from 'reanimated-bottom-sheet';
@@ -17,18 +18,17 @@ function ResultScreen({ navigation }) {
     >
       <Text>Swipe down to close</Text>
       <Text>Distance</Text>
-    </View>
-    
-  );
-  const renderContent = () => (
-    <View
-      style={{
-        backgroundColor: 'white',
-        padding: 16,
-        height: 450,
-      }}
-    >
-      
+      <Text>Time</Text>
+      <Text>Crowd Level:</Text>
+      <TouchableOpacity>
+        <Text>High</Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text>Mid</Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text>Low</Text>
+      </TouchableOpacity>
     </View>
     
   );
@@ -54,7 +54,7 @@ function ResultScreen({ navigation }) {
         snapPoints={[300, 300, 0]}
         borderRadius={10}
         renderHeader={renderHeader}
-        renderContent={renderContent}
+        enableContentTapInteraction={false}
         
       />
     </>
@@ -93,3 +93,4 @@ const ResultStackScreen = ({ navigation }) => (
 );
 
 export default ResultStackScreen;
+
