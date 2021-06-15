@@ -13,7 +13,7 @@ const StartButton = (props) => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#52f252",
+    backgroundColor: "black",
     width: 300,
     padding: 20,
     borderRadius: 30,
