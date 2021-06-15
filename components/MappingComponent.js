@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import MapViewDirections from 'react-native-maps-directions';
-import MapView, { Marker } from 'react-native-maps';
-import { ActivityIndicator } from 'react-native';
-import * as Location from 'expo-location';
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
+import MapViewDirections from "react-native-maps-directions";
+import MapView, { Marker } from "react-native-maps";
+import { ActivityIndicator } from "react-native";
+import * as Location from "expo-location";
 
 function MappingComponent({ testProp }) {
   console.log(testProp);
@@ -21,8 +21,8 @@ function MappingComponent({ testProp }) {
 
   const getLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== 'granted') {
-      setErrorMsg('Permission to access location was denied');
+    if (status !== "granted") {
+      setErrorMsg("Permission to access location was denied");
       return;
     }
 
@@ -44,7 +44,7 @@ function MappingComponent({ testProp }) {
   useEffect(() => {
     getLocation();
   }, []);
-  let text = 'Waiting..';
+  let text = "Waiting..";
   if (errorMsg) {
     text = errorMsg;
   } else if (location) {
@@ -70,7 +70,7 @@ function MappingComponent({ testProp }) {
             destination={markers[i + 1]}
             apikey={GOOGLE_MAPS_APIKEY}
             strokeWidth={4}
-            strokeColor={'#007fff'}
+            strokeColor={"#007fff"}
             onReady={(result) => setDistance(distance + result.distance)}
           />
         );
@@ -81,15 +81,15 @@ function MappingComponent({ testProp }) {
     <View
       style={{
         paddingVertical: 5,
-        backgroundColor: '#007bff',
-        borderColor: '#eee',
+        backgroundColor: "#007bff",
+        borderColor: "#eee",
         borderRadius: 5,
       }}
     >
-      <Text style={{ color: '#fff' }}>Berlin</Text>
+      <Text style={{ color: "#fff" }}>Berlin</Text>
     </View>
   );
-  if (text === 'Waiting..') {
+  if (text === "Waiting..") {
     return (
       <View>
         <ActivityIndicator />
@@ -130,7 +130,7 @@ function MappingComponent({ testProp }) {
         </Marker>
       </MapView>
       {/* need to add further styling */}
-      <Text>Distance: {distance}</Text>
+      {/* <Text>Distance: {distance}</Text> */}
     </View>
   );
 }
@@ -138,14 +138,14 @@ function MappingComponent({ testProp }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
   map: {
-    width: Dimensions.get('window').width,
+    width: Dimensions.get("window").width,
     // 80% of the screen takes on the height. so there is 20% space left at the bottom for you to fit things in.
-    height: Dimensions.get('window').height * 0.8,
+    height: Dimensions.get("window").height * 0.75,
   },
 });
 
