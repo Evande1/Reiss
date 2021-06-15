@@ -1,40 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import MapViewDirections from 'react-native-maps-directions';
-import MapView, { Marker } from 'react-native-maps';
-import * as Location from 'expo-location';
-import MarkerComponent from './MarkerComponent';
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
+import MapViewDirections from "react-native-maps-directions";
+import MapView, { Marker } from "react-native-maps";
+import * as Location from "expo-location";
+import MarkerComponent from "./MarkerComponent";
 
-const GOOGLE_MAPS_APIKEY = 'AIzaSyCve7vFBOjV4kK_DwhSHnn2JF-hXAPeszw';
+const GOOGLE_MAPS_APIKEY = "AIzaSyCve7vFBOjV4kK_DwhSHnn2JF-hXAPeszw";
 
 const data = {
   Route: {
-    startTime: 'Tue Jun 15 2021 10:47:27 GMT+0800',
-    endTime: 'Tue Jun 15 2021 10:47:27 GMT+0800',
-    totalDistance: '2.42',
-    pace: '5:30',
-    title: 'Monday Morning Run',
-    crowdLevel: 'High',
-    dangers: 'NIL',
-    remarks: 'very good',
+    startTime: "Tue Jun 15 2021 10:47:27 GMT+0800",
+    endTime: "Tue Jun 15 2021 10:47:27 GMT+0800",
+    totalDistance: "2.42",
+    pace: "5:30",
+    title: "Monday Morning Run",
+    crowdLevel: "High",
+    dangers: "NIL",
+    remarks: "very good",
     coordinates: [
       {
         latitude: 1.3584168333017268,
         longitude: 103.70746290442666,
-        danger: 'Lion Attack',
-        time: '15 June 3PM',
+        danger: "High Crowd Levels",
+        time: "15 June 3PM",
       },
       {
         latitude: 1.3500577333970956,
         longitude: 103.72828007393781,
-        danger: 'Plane Crash',
-        time: '15 June 8PM',
+        danger: "Road Works",
+        time: "15 June 8PM",
       },
       {
         latitude: 1.3316125813561035,
         longitude: 103.72105779063803,
-        danger: 'Tsnunami',
-        time: '15 June 8PM',
+        danger: "Unsuitable For Running",
+        time: "15 June 8PM",
       },
     ],
   },
@@ -88,7 +88,7 @@ function MapComponent() {
             destination={markers[i + 1]}
             apikey={GOOGLE_MAPS_APIKEY}
             strokeWidth={4}
-            strokeColor={'#007fff'}
+            strokeColor={"#007fff"}
           />
         );
       }
@@ -123,13 +123,13 @@ function MapComponent() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
   map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height * 0.6,
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height * 0.6,
   },
 });
 
