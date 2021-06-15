@@ -11,7 +11,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import SelectRoute from "../components/SelectRoute";
-import StartButton from "../components/StartButton";
+import StartButtonHome from "../components/StartButtonHome";
 import Icon from "react-native-vector-icons/Ionicons";
 
 function HomeScreen({ navigation }) {
@@ -35,11 +35,7 @@ function HomeScreen({ navigation }) {
           <Text style={styles.startPopUpText1}>{text1}</Text>
           <Text style={styles.startPopUpText2}>{text2}</Text>
         </View>
-        <StartButton
-          text="Start"
-          color="black"
-          onPress={() => setInModalMode(true)}
-        />
+        <StartButtonHome onPress={() => setInModalMode(true)} />
         <SelectRoute visible={inModalMode} onCancel={cancelInModalMode} />
       </View>
     </View>

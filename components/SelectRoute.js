@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 import SelectRouteButton from "./SelectRouteButton";
-import StartButton from "./StartButton";
+import StartButtonHome from "./StartButtonHome";
 
 const SelectRoute = (props) => {
   return (
@@ -28,7 +28,7 @@ const SelectRoute = (props) => {
             />
           </View>
           <View>
-            <StartButton text="Start" color="black" />
+            <StartButtonHome />
           </View>
         </TouchableOpacity>
       </TouchableOpacity>

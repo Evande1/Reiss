@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 
-const StartButton = (props) => {
+const MapScreenButton = (props) => {
   const content = (
     <View style={[styles.button, { backgroundColor: props.color }]}>
       <Text style={styles.text}>{props.text}</Text>
@@ -13,16 +13,16 @@ const StartButton = (props) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: 300,
-    padding: 20,
+    width: 180,
+    padding: 10,
     borderRadius: 30,
     alignItems: "center",
   },
 
   text: {
     color: "white",
-    fontSize: 20,
+    fontSize: 15,
   },
 });
 
-export default StartButton;
+export default MapScreenButton;
