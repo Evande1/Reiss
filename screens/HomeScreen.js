@@ -13,6 +13,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import SelectRoute from "../components/SelectRoute";
 import StartButtonHome from "../components/StartButtonHome";
 import Icon from "react-native-vector-icons/Ionicons";
+import MapComponent from "../components/MapComponent";
 
 function HomeScreen({ navigation }) {
   const [inModalMode, setInModalMode] = useState(false);
@@ -35,19 +36,20 @@ function HomeScreen({ navigation }) {
           <Text style={styles.startPopUpText1}>{text1}</Text>
           <Text style={styles.startPopUpText2}>{text2}</Text>
         </View>
-        <StartButtonHome onPress={() => setInModalMode(true)} />
-        <SelectRoute visible={inModalMode} onCancel={cancelInModalMode} />
+        <MapComponent></MapComponent>
+        <StartButtonHome
+          text="Start"
+          color="black"
+          onPress={() => setInModalMode(true)}
+        />
+        <SelectRoute
+          text="Start"
+          visible={inModalMode}
+          onCancel={cancelInModalMode}
+        />
       </View>
     </View>
   );
-}
-
-function PastRoutes() {
-  return <Text>Past Routes Screen</Text>;
-}
-
-function MappedRoutes() {
-  return <Text>Mapped Routes Screen</Text>;
 }
 
 const styles = StyleSheet.create({
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
 
 const Stack = createStackNavigator();
 
-export default function HomeScreenStack() {
+export default function HomeScreenStack({ navigation }) {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -124,7 +126,7 @@ export default function HomeScreenStack() {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={({ navigation }) => ({
+        options={{
           title: "Home",
           headerLeft: () => (
             <Icon.Button
@@ -134,7 +136,7 @@ export default function HomeScreenStack() {
               onPress={() => navigation.openDrawer()}
             ></Icon.Button>
           ),
-        })}
+        }}
       />
     </Stack.Navigator>
   );

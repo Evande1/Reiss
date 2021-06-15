@@ -11,8 +11,7 @@ import {
 import SelectRouteButton from "./SelectRouteButton";
 import StartButtonHome from "./StartButtonHome";
 
-const SelectRoute = (props) => {
-  const text = props.text;
+const MarkerComponent = (props) => {
   return (
     <Modal
       visible={props.visible}
@@ -23,13 +22,8 @@ const SelectRoute = (props) => {
       <TouchableOpacity style={styles.modalContainer} onPress={props.onCancel}>
         <TouchableOpacity style={styles.modal} activeOpacity={1}>
           <View>
-            <SelectRouteButton
-              text="Select Route"
-              color={styles.modalContainer.backgroundColor}
-            />
-          </View>
-          <View>
-            <StartButtonHome />
+            <Text style={styles.danger}>Dangers: {props.text}</Text>
+            <Text style={styles.timestamp}>Submitted on: 15 June 3 PM</Text>
           </View>
         </TouchableOpacity>
       </TouchableOpacity>
@@ -53,6 +47,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#f2689b",
     borderRadius: 20,
   },
+
+  danger: {
+    fontSize: 35,
+    borderWidth: 2,
+    borderColor: "red",
+    borderStyle: "dotted",
+  },
+
+  timestamp: {},
 });
 
-export default SelectRoute;
+export default MarkerComponent;

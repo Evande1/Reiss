@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 
-const StartButton = (props) => {
+const StartButtonHome = (props) => {
   const content = (
     <View style={styles.button}>
       <Text style={styles.text}>Start</Text>
@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StartButton;
+export default StartButtonHome;
