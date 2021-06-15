@@ -18,16 +18,22 @@ function HomeScreen({ navigation }) {
 
   const cancelInModalMode = () => setInModalMode(false);
 
+  const goPastRoutes = () => {
+    cancelInModalMode();
+    navigation.navigate("PastRoutes");
+  };
+
+  const goMappedRoutes = () => {
+    cancelInModalMode();
+    navigation.navigate("MappedRoutes");
+  };
+
   const username = "JYP";
   const text1 = `Good Morning ${username}`.toUpperCase();
   const text2 = "The grind don't stop".toUpperCase();
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}> App Name</Text>
-      </View>
-
       <View style={styles.startPopUp}>
         <View>
           <Text style={styles.startPopUpText1}>{text1}</Text>
@@ -38,20 +44,32 @@ function HomeScreen({ navigation }) {
           color="black"
           onPress={() => setInModalMode(true)}
         />
-        <SelectRoute visible={inModalMode} onCancel={cancelInModalMode} />
+        <SelectRoute
+          visible={inModalMode}
+          onCancel={cancelInModalMode}
+          goPastRoutes={goPastRoutes}
+          goMappedRoutes={goMappedRoutes}
+        />
       </View>
     </View>
   );
 }
 
+function PastRoutes() {
+  return <Text>Past Routes Screen</Text>;
+}
+
+function MappedRoutes() {
+  return <Text>Mapped Routes Screen</Text>;
+}
+
 const styles = StyleSheet.create({
   container: {
-    marginTop: 15,
-    padding: 20,
+    padding: 5,
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
   },
 
   header: {
@@ -70,22 +88,24 @@ const styles = StyleSheet.create({
 
   startPopUp: {
     width: "100%",
-    maxHeight: "30%",
-    backgroundColor: "#f48731",
+    maxHeight: "90%",
+    backgroundColor: "white",
     flex: 1,
     alignItems: "center",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
   },
 
   startPopUpText1: {
     color: "black",
     fontWeight: "bold",
-    fontSize: 30,
+    textAlign: "center",
+    fontSize: 25,
   },
 
   startPopUpText2: {
     color: "black",
-    fontSize: 20,
+    textAlign: "center",
+    fontSize: 15,
   },
 
   startButton: {
@@ -96,6 +116,22 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
 });
+
+const Stack = createStackNavigator();
+
+export default function HomeScreenStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="PastRoutes" component={PastRoutes} />
+      <Stack.Screen name="MappedRoutes" component={MappedRoutes} />
+    </Stack.Navigator>
+  );
+}
 
 // function HomeScreen({ navigation }) {
 //   return (
@@ -108,5 +144,3 @@ const styles = StyleSheet.create({
 //     </View>
 //   );
 // }
-
-export default HomeScreen;

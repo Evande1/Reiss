@@ -7,10 +7,18 @@ const SelectRoute = (props) => {
     <Modal visible={props.visible} animationType="slide">
       <View style={styles.modalContainer}>
         <View>
-          <ComponentButton text="Popular Routes" color="black" />
+          <ComponentButton
+            text="Choose from Past Routes"
+            color="black"
+            onPress={props.goPastRoutes}
+          />
         </View>
         <View>
-          <ComponentButton text="Run your own route" color="black" />
+          <ComponentButton
+            text="Choose from Mapped Routes"
+            color="black"
+            onPress={props.goMappedRoutes}
+          />
         </View>
         <View>
           <ComponentButton
