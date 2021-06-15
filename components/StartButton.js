@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 
-const ComponentButton = (props) => {
+const StartButton = (props) => {
   const content = (
     <View style={[styles.button, { backgroundColor: props.color }]}>
       <Text style={styles.text}>{props.text}</Text>
@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ComponentButton;
+export default StartButton;
