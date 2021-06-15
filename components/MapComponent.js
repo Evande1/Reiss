@@ -40,7 +40,7 @@ function MapComponent() {
     text = JSON.stringify(location);
   }
   // get current location
-  console.log(text);
+  //   console.log(text);
   return (
     <MapView
       style={styles.map}

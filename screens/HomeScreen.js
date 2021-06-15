@@ -13,6 +13,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import SelectRoute from '../components/SelectRoute';
 import StartButton from '../components/StartButton';
 import Icon from 'react-native-vector-icons/Ionicons';
+import MapComponent from '../components/MapComponent';
 
 function HomeScreen({ navigation }) {
   const [inModalMode, setInModalMode] = useState(false);
@@ -35,12 +36,17 @@ function HomeScreen({ navigation }) {
           <Text style={styles.startPopUpText1}>{text1}</Text>
           <Text style={styles.startPopUpText2}>{text2}</Text>
         </View>
+        <MapComponent></MapComponent>
         <StartButton
           text='Start'
           color='black'
           onPress={() => setInModalMode(true)}
         />
-        <SelectRoute visible={inModalMode} onCancel={cancelInModalMode} />
+        <SelectRoute
+          text='Start'
+          visible={inModalMode}
+          onCancel={cancelInModalMode}
+        />
       </View>
     </View>
   );
@@ -111,7 +117,7 @@ const styles = StyleSheet.create({
 
 const Stack = createStackNavigator();
 
-export default function HomeScreenStack() {
+export default function HomeScreenStack({ navigation }) {
   return (
     <Stack.Navigator
       screenOptions={{
