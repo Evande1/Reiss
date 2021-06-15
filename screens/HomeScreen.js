@@ -12,6 +12,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import SelectRoute from "../components/SelectRoute";
 import StartButton from "../components/StartButton";
+import Icon from "react-native-vector-icons/Ionicons";
 
 function HomeScreen({ navigation }) {
   const [inModalMode, setInModalMode] = useState(false);
@@ -127,7 +128,7 @@ export default function HomeScreenStack() {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={({ navigation }) => ({
+        options={{
           title: "Home",
           headerLeft: () => (
             <Icon.Button
@@ -137,7 +138,7 @@ export default function HomeScreenStack() {
               onPress={() => navigation.openDrawer()}
             ></Icon.Button>
           ),
-        })}
+        }}
       />
     </Stack.Navigator>
   );
