@@ -5,16 +5,14 @@ import MapView, { Marker } from 'react-native-maps';
 import { ActivityIndicator } from 'react-native';
 import * as Location from 'expo-location';
 
-const GOOGLE_MAPS_APIKEY = 'AIzaSyBc4I3OelmxwirxU-Q_yjhPqmjwPE86JE8';
+const GOOGLE_MAPS_APIKEY = 123;
 
 function MappingComponent() {
   // loading state
-  const [loading, setLoading] = useState(null);
   // distance state
   const [distance, setDistance] = useState(0);
 
   const [markers, setMarkers] = useState([]);
-  const [directions, setDirections] = useState();
   const renderedDirections = [];
   const renderedMarker = [];
 
@@ -23,15 +21,13 @@ function MappingComponent() {
   const [errorMsg, setErrorMsg] = useState(null);
 
   const getLocation = async () => {
-    setLoading(true);
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
       setErrorMsg('Permission to access location was denied');
-      setLoading(false);
       return;
     }
 
-    let location = await Location.getCurrentPositionAsync({});
+    let location = await Location.getCurrentPositionAsync({ accuracy: 6 });
     setLocation(location);
     setMarkers([
       {
@@ -39,7 +35,6 @@ function MappingComponent() {
         longitude: location.coords.longitude,
       },
     ]);
-    setLoading(false);
   };
 
   useEffect(() => {
