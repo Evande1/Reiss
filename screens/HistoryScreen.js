@@ -190,3 +190,4 @@ const HistoryStackScreen = ({ navigation }) => (
 );
 
 export default HistoryStackScreen;
+
