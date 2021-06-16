@@ -8,6 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import Animated from 'react-native-reanimated';
 import BottomSheet from 'reanimated-bottom-sheet';
+import MapComponent from '../components/MapComponent';
 
 function ResultScreen({ navigation }) {
   const renderHeader = () => (
@@ -162,15 +163,17 @@ function ResultScreen({ navigation }) {
 
   return (
     <>
+    <View><MapComponent mapWidth="1" mapHeight="0.8"></MapComponent></View>
       <View
         style={{
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
+          elevation:0,
         }}
       >
         <Button
-          title="Start"
+          title="Results"
           onPress={() => sheetRef.current.snapTo(0)}
         />
       </View>
@@ -179,7 +182,6 @@ function ResultScreen({ navigation }) {
         snapPoints={[350, 350, 0]}
         renderHeader={renderHeader}
         enableContentTapInteraction={false}
-        
       />
     </>
   );

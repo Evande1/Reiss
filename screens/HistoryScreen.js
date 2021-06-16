@@ -122,7 +122,7 @@ function HistoryScreen({ navigation }) {
           ListHeaderComponent={FlatListHeader}
         />
       </View>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
+      
     </View>
   );
 }
