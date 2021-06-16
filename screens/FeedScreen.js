@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, Modal,SafeAreaView, TouchableOpacity,Fl
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
-import FeedMapComponent from '../components/FeedMapComponent';
+import MapComponent from '../components/MapComponent';
 
 const arr = [
   {
@@ -57,7 +57,7 @@ function FeedScreen({ navigation }) {
               <View style={styles.itemContainer}>
                 <View>
                   <Text>
-                  <Icon name='md-person-outline' size ={30}></Icon>
+                  <Icon name='md-person-outline' size ={25}><Text>Icognito</Text></Icon>
                   <Text style={{ fontWeight: 'bold' }}>{'\n'}{item.title}</Text>
                   <Text>
                     {'\n'}
@@ -79,7 +79,7 @@ function FeedScreen({ navigation }) {
                 </Text>
                 </View>
                 <View style={{flex:1}}>
-                  <FeedMapComponent></FeedMapComponent>
+                  <MapComponent mapWidth='0.5' mapHeight='0.3'></MapComponent>
                 </View>
               </View>
               </TouchableOpacity>
