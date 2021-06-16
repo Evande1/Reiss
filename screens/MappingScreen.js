@@ -85,12 +85,15 @@ function MappingStackScreen({ navigation }) {
   return (
     <MappingStack.Navigator
       screenOptions={{
+        headerTitle: "Map Your Route",
         headerStyle: {
-          backgroundColor: "#009387",
+          backgroundColor: "white",
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
           fontWeight: "bold",
+          color: "#f25260",
+          fontSize: 20,
         },
       }}
     >
@@ -103,7 +106,8 @@ function MappingStackScreen({ navigation }) {
             <Icon.Button
               name="ios-menu"
               size={25}
-              backgroundColor="#009387"
+              backgroundColor="white"
+              color="black"
               onPress={() => navigation.openDrawer()}
             ></Icon.Button>
           ),
