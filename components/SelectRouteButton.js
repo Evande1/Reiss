@@ -12,9 +12,9 @@ const SelectRouteButton = (props) => {
 
   return (
     <TouchableOpacity
-      onPress={() =>
-        navigation.navigate("Saved Routes", { screen: "Saved Routes" })
-      }
+      onPress={() => {
+        navigation.navigate("Saved Routes", { screen: "Saved Routes" });
+      }}
     >
       {content}
     </TouchableOpacity>

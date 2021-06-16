@@ -26,15 +26,23 @@ const SelectRoute = (props) => {
         <TouchableOpacity style={styles.modal} activeOpacity={1}>
           <View>
             <SelectRouteButton
+              onCancel={props.onCancel}
               text="Select Route"
               color={styles.modalContainer.backgroundColor}
+              onPress={() =>
+                navigation.navigate("Saved Routes", { screen: "Saved Routes" })
+              }
             />
           </View>
           <View>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Running Screen")}
+              onPress={() => {
+                props.onCancel();
+                navigation.navigate("Running Screen");
+              }}
+              style={styles.button}
             >
-              <Text>Start</Text>
+              <Text style={styles.text}>Start</Text>
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
@@ -58,6 +66,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#f2689b",
     borderRadius: 20,
+  },
+  button: {
+    backgroundColor: "black",
+    width: 300,
+    padding: 20,
+    borderRadius: 30,
+    alignItems: "center",
+  },
+
+  text: {
+    color: "white",
+    fontSize: 20,
   },
 });
 
