@@ -81,14 +81,6 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
 
-  text1: {
-    color: "black",
-    fontWeight: "bold",
-    textAlign: "center",
-    fontSize: 25,
-    fontFamily: "SenBold",
-  },
-
   text2: {
     color: "black",
     textAlign: "center",
@@ -202,4 +194,3 @@ export default function HomeScreenStack({ navigation }) {
 // );
 
 // export default HomeStackScreen;
-
