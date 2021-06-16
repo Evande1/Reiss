@@ -67,7 +67,7 @@ function FeedScreen({ navigation }) {
                   <View>
                     <Text>
                       <Icon name="md-person-outline" size={25}>
-                        <Text>Icognito</Text>
+                        <Text>User</Text>
                       </Icon>
                       <Text style={{ fontWeight: "bold" }}>
                         {"\n"}
@@ -101,7 +101,6 @@ function FeedScreen({ navigation }) {
           )}
         />
       </View>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
     </View>
   );
 }

@@ -12,8 +12,10 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
-import Animated from "react-native-reanimated";
-import BottomSheet from "reanimated-bottom-sheet";
+import Animated from 'react-native-reanimated';
+import BottomSheet from 'reanimated-bottom-sheet';
+import MapComponent from '../components/MapComponent';
+
 
 function ResultScreen({ navigation }) {
   const renderHeader = () => (
@@ -168,14 +170,21 @@ function ResultScreen({ navigation }) {
 
   return (
     <>
+    <View><MapComponent mapWidth="1" mapHeight="0.8"></MapComponent></View>
       <View
         style={{
           flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
+
+          alignItems: 'center',
+          justifyContent: 'center',
+          elevation:0,
         }}
       >
-        <Button title="Start" onPress={() => sheetRef.current.snapTo(0)} />
+        <Button
+          title="Results"
+          onPress={() => sheetRef.current.snapTo(0)}
+        />
+
       </View>
       <BottomSheet
         ref={sheetRef}
