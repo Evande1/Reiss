@@ -29,6 +29,7 @@ function HomeScreen({ navigation }) {
           name="pluscircleo"
           size={24}
           color="black"
+          style={{right:10}}
           onPress={() =>
             navigation.navigate("Mapping", { screen: "MappingScreen" })
           }
@@ -59,7 +60,7 @@ function HomeScreen({ navigation }) {
         </View>
       </View>
       <SelectRoute
-        text="Start"
+        text="S art"
         visible={inModalMode}
         onCancel={cancelInModalMode}
       />
@@ -79,7 +80,13 @@ const styles = StyleSheet.create({
   textContainer: {
     height: 50,
     justifyContent: "flex-start",
-    opacity: 0.6,
+  },
+
+  text1: {
+    color: "black",
+    textAlign: "center",
+    fontSize: 30,
+    fontWeight: "700",
   },
 
   text2: {
@@ -104,7 +111,7 @@ const styles = StyleSheet.create({
 
   startButton: {
     width: "80%",
-    backgroundColor: "black",
+    backgroundColor: "#2DC7F8",
     color: "white",
     padding: 20,
     borderRadius: 30,
@@ -118,16 +125,16 @@ export default function HomeScreenStack({ navigation }) {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
-        headerTitle: "App Name",
+        headerTitle: "SAFETracks",
         headerStyle: {
           backgroundColor: "white",
         },
 
         headerTintColor: "#fff",
         headerTitleStyle: {
-          fontWeight: "bold",
-          color: "#f25260",
-          fontSize: 20,
+          fontWeight: "900",
+          color: "#f25260", 
+          fontSize: 27,
         },
       }}
     >

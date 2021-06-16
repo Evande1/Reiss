@@ -114,7 +114,7 @@ function MappingStackScreen({ navigation }) {
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
-          fontWeight: "bold",
+          fontWeight: "800",
           color: "#f25260",
           fontSize: 20,
         },
