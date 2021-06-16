@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Modal,SafeAreaView, TouchableOpacity,Fl
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
+import FeedMapComponent from '../components/FeedMapComponent';
 
 const arr = [
   {
@@ -51,9 +52,11 @@ function FeedScreen({ navigation }) {
         <FlatList
           data={arr}
           renderItem={({ item }) => (
-            <View style={{ height: 160 }}>
+            <View style={styles.container}>
               <TouchableOpacity style={styles.buttonsStyle}>
-                <Text style={styles.tag}>
+              <View style={styles.itemContainer}>
+                <View>
+                  <Text>
                   <Icon name='md-person-outline' size ={30}></Icon>
                   <Text style={{ fontWeight: 'bold' }}>{'\n'}{item.title}</Text>
                   <Text>
@@ -74,6 +77,11 @@ function FeedScreen({ navigation }) {
                     Total Distance: {item.totalDistance}
                   </Text>
                 </Text>
+                </View>
+                <View style={{flex:1}}>
+                  <FeedMapComponent></FeedMapComponent>
+                </View>
+              </View>
               </TouchableOpacity>
             </View>
           )}
@@ -131,7 +139,19 @@ const styles = StyleSheet.create({
     padding: 3,
     marginTop: 10,
   },
-  
+  itemContainer: {
+    flexDirection: "row",
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
+    marginTop: 15,
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    borderColor: "black",
+    backgroundColor: "white",
+    width: "100%",
+    height: 300,
+  },
 });
 
 export default FeedStackScreen;
