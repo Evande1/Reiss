@@ -11,7 +11,7 @@ const dangersDemo = [
   {
     latitude: 1.3584168333017268,
     longitude: 103.70746290442666,
-    danger: "High Crowd Levels",
+    danger: "Pot Hole",
     time: "15 June 3PM",
   },
   {
@@ -23,37 +23,37 @@ const dangersDemo = [
   {
     latitude: 1.3316125813561035,
     longitude: 103.72105779063803,
-    danger: "Unsuitable For Running",
+    danger: "Covid Cluster",
     time: "15 June 8PM",
   },
   {
     latitude: 1.3320205689299665,
     longitude: 103.7067883579421,
-    danger: "Unsuitable For Running",
+    danger: "Park Shut Shut",
     time: "15 June 8PM",
   },
   {
     latitude: 1.3223156736659978,
     longitude: 103.72187287348657,
-    danger: "Unsuitable For Running",
+    danger: "Heavy Traffic",
     time: "15 June 8PM",
   },
   {
     latitude: 1.3244081821764921,
     longitude: 103.72955948083074,
-    danger: "Unsuitable For Running",
+    danger: "Stray Dogs",
     time: "15 June 8PM",
   },
   {
     latitude: 1.3208364855403654,
     longitude: 103.71873327350218,
-    danger: "Unsuitable For Running",
+    danger: "Hostile Wild Boars",
     time: "15 June 8PM",
   },
   {
     latitude: 1.3319844913167456,
     longitude: 103.73699347652969,
-    danger: "Unsuitable For Running",
+    danger: "Block Off Path",
     time: "15 June 8PM",
   },
 ];
