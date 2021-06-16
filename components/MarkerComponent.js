@@ -10,8 +10,21 @@ import {
 
 import SelectRouteButton from "./SelectRouteButton";
 import StartButtonHome from "./StartButtonHome";
+import { Entypo } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 const MarkerComponent = (props) => {
+  const dangerType = function () {
+    const dangerTypeCheck = props.text.toLowerCase().split(" ")[0][0];
+    if (dangerTypeCheck === "h") {
+      return "people";
+    } else if (dangerTypeCheck === "r") {
+      return "construct";
+    } else if (dangerTypeCheck === "u") {
+      return "alert-circle";
+    }
+  };
+
   return (
     <Modal
       visible={props.visible}
@@ -21,9 +34,14 @@ const MarkerComponent = (props) => {
     >
       <TouchableOpacity style={styles.modalContainer} onPress={props.onCancel}>
         <TouchableOpacity style={styles.modal} activeOpacity={1}>
-          <View>
-            <Text style={styles.danger}>Dangers: {props.text}</Text>
-            <Text style={styles.timestamp}>Submitted on: 15 June 3 PM</Text>
+          <View style={styles.hazardContainer}>
+            <View>
+              <Text style={styles.danger}>Danger: {props.text}</Text>
+            </View>
+            <Ionicons name={dangerType()} size={40} color="black" />
+          </View>
+          <View style={styles.timeStampContainer}>
+            <Text style={styles.timeStamp}>Submitted on: 15 June 03:00 PM</Text>
           </View>
         </TouchableOpacity>
       </TouchableOpacity>
@@ -40,22 +58,30 @@ const styles = StyleSheet.create({
 
   modal: {
     width: "100%",
-    height: "30%",
+    height: "25%",
     marginTop: "auto",
     alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#f2689b",
+    justifyContent: "space-evenly",
+    backgroundColor: "#e03a3a",
     borderRadius: 20,
   },
 
-  danger: {
-    fontSize: 35,
-    borderWidth: 2,
-    borderColor: "red",
-    borderStyle: "dotted",
+  hazardContainer: {
+    width: 550,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
   },
 
-  timestamp: {},
+  danger: {
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+
+  timeStampContainer: {
+    width: 550,
+    alignItems: "center",
+    fontWeight: "600",
+  },
 });
 
 export default MarkerComponent;

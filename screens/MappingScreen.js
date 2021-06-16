@@ -34,7 +34,13 @@ function MappingScreen({ navigation, test1 }) {
           <Text style={styles.text}>{inPlaceText("Crowd", "High")}</Text>
         </View>
         <View style={styles.buttons}>
-          <MapScreenButton text="Save" color="#54c0e8" />
+          <MapScreenButton
+            text="Save"
+            color="#54c0e8"
+            onPress={() =>
+              navigation.navigate("Home", { screen: "HomeScreen" })
+            }
+          />
           <MapScreenButton text="Start" color="#52f252" />
         </View>
       </View>
@@ -85,12 +91,15 @@ function MappingStackScreen({ navigation }) {
   return (
     <MappingStack.Navigator
       screenOptions={{
+        headerTitle: "Map Your Route",
         headerStyle: {
-          backgroundColor: "#009387",
+          backgroundColor: "white",
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
           fontWeight: "bold",
+          color: "#f25260",
+          fontSize: 20,
         },
       }}
     >
@@ -103,7 +112,8 @@ function MappingStackScreen({ navigation }) {
             <Icon.Button
               name="ios-menu"
               size={25}
-              backgroundColor="#009387"
+              backgroundColor="white"
+              color="black"
               onPress={() => navigation.openDrawer()}
             ></Icon.Button>
           ),
@@ -112,5 +122,4 @@ function MappingStackScreen({ navigation }) {
     </MappingStack.Navigator>
   );
 }
-
 export default MappingStackScreen;

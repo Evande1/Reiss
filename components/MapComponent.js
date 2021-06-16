@@ -21,19 +21,19 @@ const data = {
       {
         latitude: 1.3584168333017268,
         longitude: 103.70746290442666,
-        danger: "Lion Attack",
+        danger: "High Crowd Levels",
         time: "15 June 3PM",
       },
       {
         latitude: 1.3500577333970956,
         longitude: 103.72828007393781,
-        danger: "Plane Crash",
+        danger: "Road Works",
         time: "15 June 8PM",
       },
       {
         latitude: 1.3316125813561035,
         longitude: 103.72105779063803,
-        danger: "Tsnunami",
+        danger: "Unsuitable For Running",
         time: "15 June 8PM",
       },
     ],
