@@ -27,7 +27,7 @@ function HomeScreen({ navigation }) {
         <AntDesign
           name="pluscircleo"
           size={24}
-          color="white"
+          color="black"
           onPress={() =>
             navigation.navigate("Mapping", { screen: "MappingScreen" })
           }
@@ -36,34 +36,32 @@ function HomeScreen({ navigation }) {
     });
   }, []);
 
-  const SelectRoutes = () => {
-    cancelInModalMode();
-    navigation.navigate("PastRoutes");
-  };
-
-  const username = "JYP";
-  const text1 = `Good Morning ${username}`.toUpperCase();
+  const text1 = `Good Morning User`.toUpperCase();
   const text2 = "The grind don't stop".toUpperCase();
 
   return (
     <View style={styles.container}>
-      <View style={styles.startPopUp}>
-        <View>
-          <Text style={styles.startPopUpText1}>{text1}</Text>
-          <Text style={styles.startPopUpText2}>{text2}</Text>
-        </View>
-        <MapComponent></MapComponent>
-        <StartButtonHome
-          text="Start"
-          color="black"
-          onPress={() => setInModalMode(true)}
-        />
-        <SelectRoute
-          text="Start"
-          visible={inModalMode}
-          onCancel={cancelInModalMode}
-        />
+      <View style={styles.textContainer}>
+        <Text style={styles.text1}>{text1}</Text>
+        <Text style={styles.text2}>{text2}</Text>
       </View>
+      <View style={styles.body}>
+        <View style={styles.map}>
+          <MapComponent mapWidth="1" mapHeight="0.9"></MapComponent>
+        </View>
+        <View>
+          <StartButtonHome
+            text="Start"
+            color="black"
+            onPress={() => setInModalMode(true)}
+          />
+        </View>
+      </View>
+      <SelectRoute
+        text="Start"
+        visible={inModalMode}
+        onCancel={cancelInModalMode}
+      />
     </View>
   );
 }
@@ -77,41 +75,38 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  header: {
-    width: "100%",
-    maxHeight: "10%",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#1D2027",
+  textContainer: {
+    height: 50,
+    justifyContent: "flex-start",
+    opacity: 0.6,
   },
 
-  headerText: {
+  text1: {
+    color: "black",
     fontWeight: "bold",
-    color: "white",
+    textAlign: "center",
+    fontSize: 25,
+    fontFamily: "SenBold",
   },
 
-  startPopUp: {
+  text2: {
+    color: "black",
+    textAlign: "center",
+    fontSize: 15,
+    fontWeight: "300",
+  },
+
+  body: {
     width: "100%",
     maxHeight: "90%",
     backgroundColor: "white",
     flex: 1,
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "center",
   },
 
-  startPopUpText1: {
-    color: "black",
-    fontWeight: "bold",
-    textAlign: "center",
-    fontSize: 25,
-  },
-
-  startPopUpText2: {
-    color: "black",
-    textAlign: "center",
-    fontSize: 15,
-    fontWeight: "300",
+  map: {
+    flex: 1,
   },
 
   startButton: {
@@ -130,12 +125,16 @@ export default function HomeScreenStack({ navigation }) {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
+        headerTitle: "App Name",
         headerStyle: {
-          backgroundColor: "#009387",
+          backgroundColor: "white",
         },
+
         headerTintColor: "#fff",
         headerTitleStyle: {
           fontWeight: "bold",
+          color: "#f25260",
+          fontSize: 20,
         },
       }}
     >
@@ -148,7 +147,8 @@ export default function HomeScreenStack({ navigation }) {
             <Icon.Button
               name="ios-menu"
               size={25}
-              backgroundColor="#009387"
+              backgroundColor="white"
+              color="black"
               onPress={() => navigation.openDrawer()}
             ></Icon.Button>
           ),
