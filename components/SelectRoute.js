@@ -10,8 +10,10 @@ import {
 
 import SelectRouteButton from "./SelectRouteButton";
 import StartButtonHome from "./StartButtonHome";
+import { useNavigation } from "@react-navigation/native";
 
 const SelectRoute = (props) => {
+  const navigation = useNavigation();
   const text = props.text;
   return (
     <Modal
@@ -29,7 +31,11 @@ const SelectRoute = (props) => {
             />
           </View>
           <View>
-            <StartButtonHome />
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Running Screen")}
+            >
+              <Text>Start</Text>
+            </TouchableOpacity>
           </View>
         </TouchableOpacity>
       </TouchableOpacity>

@@ -5,8 +5,9 @@ import MapView, { Marker } from "react-native-maps";
 import { ActivityIndicator } from "react-native";
 import * as Location from "expo-location";
 
-function MappingComponent({ testProp }) {
-  console.log(testProp);
+const GOOGLE_MAPS_APIKEY = "AIzaSyCve7vFBOjV4kK_DwhSHnn2JF-hXAPeszw";
+
+function MappingComponent({ testProp, parentCallback }) {
   // loading state
   // distance state
   const [distance, setDistance] = useState(0);
@@ -39,7 +40,12 @@ function MappingComponent({ testProp }) {
   useEffect(() => {
     renderedDirections = [];
     setMarkers([markers[0]]);
+    setDistance(0);
   }, [testProp]);
+
+  useEffect(() => {
+    parentCallback(distance);
+  }, [distance]);
 
   useEffect(() => {
     getLocation();
@@ -71,7 +77,9 @@ function MappingComponent({ testProp }) {
             apikey={GOOGLE_MAPS_APIKEY}
             strokeWidth={4}
             strokeColor={"#007fff"}
-            onReady={(result) => setDistance(distance + result.distance)}
+            onReady={(result) => {
+              setDistance(distance + result.distance);
+            }}
           />
         );
       }
@@ -120,14 +128,14 @@ function MappingComponent({ testProp }) {
         {renderedDirections}
         {renderedMarker}
         {/* Example of marker coordinate */}
-        <Marker
+        {/* <Marker
           coordinate={{
             latitude: 1.3493511621188985,
             longitude: 103.72356312969188,
           }}
         >
           <CustomMarker />
-        </Marker>
+        </Marker> */}
       </MapView>
       {/* need to add further styling */}
       {/* <Text>Distance: {distance}</Text> */}

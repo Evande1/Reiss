@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Button, Modal } from "react-native";
 import StopWatch from "../components/StopWatchComponent";
 
-function RunningScreen({ navigation }) {
+function RunningScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.pace}>

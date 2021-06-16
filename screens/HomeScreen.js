@@ -15,6 +15,7 @@ import StartButtonHome from "../components/StartButtonHome";
 import Icon from "react-native-vector-icons/Ionicons";
 import MapComponent from "../components/MapComponent";
 import { AntDesign } from "@expo/vector-icons";
+import RunningScreen from "./RunningScreen";
 
 function HomeScreen({ navigation }) {
   const [inModalMode, setInModalMode] = useState(false);
@@ -144,6 +145,13 @@ export default function HomeScreenStack({ navigation }) {
               onPress={() => navigation.openDrawer()}
             ></Icon.Button>
           ),
+        }}
+      />
+      <Stack.Screen
+        name="Run"
+        component={RunningScreen}
+        options={{
+          title: "Run",
         }}
       />
     </Stack.Navigator>

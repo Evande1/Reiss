@@ -5,9 +5,16 @@ import MappingComponent from "../components/MappingComponent";
 import Icon from "react-native-vector-icons/Ionicons";
 import { AntDesign } from "@expo/vector-icons";
 import MapScreenButton from "../components/MapScreenButton";
+import { useEffect } from "react/cjs/react.production.min";
 
 function MappingScreen({ navigation, test1 }) {
   [test1, setTest1] = useState(true);
+
+  const [distance, setDistance] = useState(0);
+
+  handleDistanceChange = (childData) => {
+    setDistance(childData);
+  };
 
   const inPlaceText = (word, level) => {
     return `${word}: ${String(level)}`.padStart(20, " ");
@@ -19,18 +26,22 @@ function MappingScreen({ navigation, test1 }) {
         <AntDesign
           name="delete"
           size={25}
-          color="white"
+          color="black"
           onPress={() => setTest1(test1 === true ? false : true)}
         />
       ),
     });
   }, [navigation, test1]);
+
   return (
     <View style={styles.container}>
-      <MappingComponent testProp={test1}></MappingComponent>
+      <MappingComponent
+        testProp={test1}
+        parentCallback={handleDistanceChange}
+      ></MappingComponent>
       <View style={styles.detailContainer}>
         <View style={styles.textContainer}>
-          <Text style={styles.text}>{inPlaceText("Distance", "10km")}</Text>
+          <Text style={styles.text}>{inPlaceText("Distance", distance)}</Text>
           <Text style={styles.text}>{inPlaceText("Crowd", "High")}</Text>
         </View>
         <View style={styles.buttons}>
@@ -38,10 +49,16 @@ function MappingScreen({ navigation, test1 }) {
             text="Save"
             color="#54c0e8"
             onPress={() =>
+              navigation.navigate("Saved Routes", { screen: "Saved Routes" })
+            }
+          />
+          <MapScreenButton
+            text="Start"
+            color="#52f252"
+            onPress={() =>
               navigation.navigate("Home", { screen: "HomeScreen" })
             }
           />
-          <MapScreenButton text="Start" color="#52f252" />
         </View>
       </View>
     </View>

@@ -12,6 +12,7 @@ import HistoryScreen from "./screens/HistoryScreen";
 import ResultScreen from "./screens/ResultScreen";
 import MappingScreen from "./screens/MappingScreen";
 import PastRoutesStackScreen from "./screens/PastRoutesScreen";
+import RunningScreen from "./screens/RunningScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -25,6 +26,7 @@ export default function App() {
         <Drawer.Screen name="Result" component={ResultScreen} />
         <Drawer.Screen name="Mapping" component={MappingScreen} />
         <Drawer.Screen name="Saved Routes" component={PastRoutesStackScreen} />
+        <Drawer.Screen name="Running Screen" component={RunningScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

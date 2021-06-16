@@ -1,14 +1,24 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const SelectRouteButton = (props) => {
+  const navigation = useNavigation();
   const content = (
     <View style={[styles.button, { backgroundColor: props.color }]}>
       <Text style={styles.text}>{props.text}</Text>
     </View>
   );
 
-  return <TouchableOpacity onPress={props.onPress}>{content}</TouchableOpacity>;
+  return (
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("Saved Routes", { screen: "Saved Routes" })
+      }
+    >
+      {content}
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({

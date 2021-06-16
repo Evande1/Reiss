@@ -19,34 +19,34 @@ const arr = [
     endTime: "Mon Jun 15 2021 10:47:27 ",
     totalDistance: "2.42",
     pace: "5:30",
-    title: "Monday Morning Run",
+    title: "Run at Bukit Timah Hill",
     crowdLevel: "High",
     dangers: "NIL",
-    remarks: "very good",
+    remarks: "Nice Scenery",
     directions:
       "[{'origin' : {'longitude' : '1.362063609552904' , 'latitude' : '103.69956604782682'}, 'destination' : {'longitude' : '1.3367505787994702' , 'latitude' : '103.72342697847203'}  }]",
   },
   {
     startTime: "Tue Jun 16 2021 10:47:27  ",
     endTime: "Tue Jun 16 2021 10:47:27  ",
-    totalDistance: "2.42",
-    pace: "5:30",
-    title: "Tuesday Morning Run",
+    totalDistance: "4.5",
+    pace: "6:15",
+    title: "Run around the neighbourhood",
     crowdLevel: "High",
     dangers: "NIL",
-    remarks: "very good",
+    remarks: "High Elevation",
     directions:
       "[{'origin' : {'longitude' : '1.362063609552904' , 'latitude' : '103.69956604782682'}, 'destination' : {'longitude' : '1.3367505787994702' , 'latitude' : '103.72342697847203'}  }]",
   },
   {
     startTime: "Wed Jun 17 2021 10:47:27  ",
     endTime: "Wed Jun 17 2021 10:47:27  ",
-    totalDistance: "2.42",
-    pace: "5:30",
-    title: "Wednesday Morning Run",
+    totalDistance: "8.62",
+    pace: "7:10",
+    title: "Sunday run with Friends",
     crowdLevel: "High",
     dangers: "NIL",
-    remarks: "very good",
+    remarks: "Windy Route",
     directions:
       "[{'origin' : {'longitude' : '1.362063609552904' , 'latitude' : '103.69956604782682'}, 'destination' : {'longitude' : '1.3367505787994702' , 'latitude' : '103.72342697847203'}  }]",
   },
@@ -93,11 +93,13 @@ function PastRoutesScreen({ navigation }) {
                   <View>
                     <Text style={styles.text}>{item.title}</Text>
                     <Text>
-                      Pace: {item.pace}
+                      Average Pace: {item.pace}
                       {"\n"}
                       Total Distance: {item.totalDistance}
                       {"\n"}
                       Remarks: {item.remarks}
+                      {"\n"}
+                      Total Attempts: 21
                     </Text>
                   </View>
                   <View>
@@ -110,7 +112,6 @@ function PastRoutesScreen({ navigation }) {
           ListHeaderComponent={FlatListHeader}
         />
       </View>
-      
     </View>
   );
 }
@@ -148,7 +149,7 @@ const PastRoutesStack = createStackNavigator();
 const PastRoutesStackScreen = ({ navigation }) => (
   <PastRoutesStack.Navigator
     screenOptions={{
-      headerTitle: "History",
+      headerTitle: "Saved Routes",
       headerStyle: {
         backgroundColor: "white",
       },
@@ -161,10 +162,10 @@ const PastRoutesStackScreen = ({ navigation }) => (
     }}
   >
     <PastRoutesStack.Screen
-      name="History"
+      name="Saved Routes"
       component={PastRoutesScreen}
       options={{
-        title: "History",
+        title: "Saved Routes",
         headerLeft: () => (
           <Icon.Button
             name="ios-menu"
