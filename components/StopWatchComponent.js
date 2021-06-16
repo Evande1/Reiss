@@ -1,12 +1,13 @@
 import React, { useState, useRef } from "react";
 import { Button, View, Text, StyleSheet } from "react-native";
-import { block } from "react-native-reanimated";
+import { useNavigation } from "@react-navigation/native";
 
 const StopWatch = () => {
   const [timer, setTimer] = useState(700);
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const increment = useRef(null);
+  const navigation = useNavigation();
 
   const handleStart = () => {
     setIsActive(true);
@@ -33,6 +34,7 @@ const StopWatch = () => {
     setIsActive(false);
     setIsPaused(false);
     setTimer(0);
+    navigation.navigate("Result", { screen: "Result" });
   };
 
   const formatTime = () => {
@@ -53,7 +55,7 @@ const StopWatch = () => {
       ) : (
         <Button title="Resume " onPress={handleResume}></Button>
       )}
-      <Button title="Reset" onPress={handleReset} disabled={!isActive}></Button>
+      <Button title="Stop" onPress={handleReset} disabled={!isActive}></Button>
     </View>
   );
 };

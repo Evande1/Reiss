@@ -29,7 +29,7 @@ function HomeScreen({ navigation }) {
           name="pluscircleo"
           size={24}
           color="black"
-          style={{right:10}}
+          style={{ right: 10 }}
           onPress={() =>
             navigation.navigate("Mapping", { screen: "MappingScreen" })
           }
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
 
   textContainer: {
-    height: 50,
+    height: 60,
     justifyContent: "flex-start",
   },
 
@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 15,
     fontWeight: "300",
+    marginBottom: 2,
   },
 
   body: {
@@ -125,7 +126,7 @@ export default function HomeScreenStack({ navigation }) {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
-        headerTitle: "SAFETracks",
+        headerTitle: "SafeTracks",
         headerStyle: {
           backgroundColor: "white",
         },
@@ -133,7 +134,7 @@ export default function HomeScreenStack({ navigation }) {
         headerTintColor: "#fff",
         headerTitleStyle: {
           fontWeight: "900",
-          color: "#f25260", 
+          color: "#f25260",
           fontSize: 27,
         },
       }}

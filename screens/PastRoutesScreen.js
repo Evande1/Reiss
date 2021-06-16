@@ -7,7 +7,6 @@ import {
   Modal,
   FlatList,
   TouchableOpacity,
-  Image,
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -103,7 +102,10 @@ function PastRoutesScreen({ navigation }) {
                     </Text>
                   </View>
                   <View>
-                    <MapComponent mapWidth="0.5" mapHeight="0.3"></MapComponent>
+                    <MapComponent
+                      mapWidth="0.4"
+                      mapHeight="0.25"
+                    ></MapComponent>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -118,6 +120,7 @@ function PastRoutesScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
+    marginLeft: 2,
     flex: 1,
   },
 
@@ -131,17 +134,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: "black",
     backgroundColor: "white",
-    width: "100%",
-    height: 300,
+    width: "98%",
+    height: 200,
   },
 
   text: {
     fontWeight: "bold",
-  },
-
-  image: {
-    width: 100,
-    height: 100,
   },
 });
 

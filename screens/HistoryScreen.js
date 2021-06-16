@@ -7,7 +7,6 @@ import {
   Modal,
   FlatList,
   TouchableOpacity,
-  Image,
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -92,11 +91,7 @@ function HistoryScreen({ navigation }) {
                 <View style={styles.itemContainer}>
                   <View>
                     <Text style={styles.text}>{item.title}</Text>
-                    <Text>
-                      {"\n"}
-                      {item.startTime}
-                      {"\n"}Crowd Level:{" "}
-                    </Text>
+                    <Text>{"\n"}Crowd Level: </Text>
                     <Text style={styles.text}>
                       {item.crowdLevel}
                       {"\n"}
@@ -111,7 +106,10 @@ function HistoryScreen({ navigation }) {
                     </Text>
                   </View>
                   <View>
-                    <MapComponent mapWidth="0.5" mapHeight="0.3"></MapComponent>
+                    <MapComponent
+                      mapWidth="0.4"
+                      mapHeight="0.25"
+                    ></MapComponent>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -120,7 +118,6 @@ function HistoryScreen({ navigation }) {
           ListHeaderComponent={FlatListHeader}
         />
       </View>
-      
     </View>
   );
 }
@@ -128,6 +125,7 @@ function HistoryScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginLeft: 2,
   },
 
   itemContainer: {
@@ -140,17 +138,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: "black",
     backgroundColor: "white",
-    width: "100%",
-    height: 300,
+    width: "98%",
+    height: 200,
   },
 
   text: {
     fontWeight: "bold",
-  },
-
-  image: {
-    width: 100,
-    height: 100,
   },
 });
 
