@@ -76,7 +76,7 @@ function MappingScreen({ navigation }) {
       <View style={styles.detailContainer}>
         <View style={styles.textContainer}>
           <Text style={styles.text}>{inPlaceText("Distance", distance)}</Text>
-          <Text style={styles.text}>{inPlaceText("Crowd", "")}</Text>
+          <Text style={styles.text}>{inPlaceText("Crowd", "-")}</Text>
         </View>
         <View style={styles.buttons}>
           <MapScreenButton
