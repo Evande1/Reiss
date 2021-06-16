@@ -87,7 +87,7 @@ function PastRoutesScreen({ navigation }) {
           data={arr}
           renderItem={({ item }) => (
             <View style={styles.container}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Home")}>
                 <View style={styles.itemContainer}>
                   <View>
                     <Text style={styles.text}>{item.title}</Text>

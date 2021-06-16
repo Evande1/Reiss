@@ -21,7 +21,7 @@ function ResultScreen({ navigation }) {
     <View
       style={{
         backgroundColor: "#FF576B",
-        padding: 5,
+        padding: 12,
         height: 400,
         borderRadius: 34,
         flex: 1,
@@ -29,7 +29,7 @@ function ResultScreen({ navigation }) {
     >
       <View
         style={{
-          height: 400,
+          height: 450,
         }}
       >
         <View style={styles.time}>

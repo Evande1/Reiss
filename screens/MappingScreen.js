@@ -6,9 +6,10 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { AntDesign } from "@expo/vector-icons";
 import MapScreenButton from "../components/MapScreenButton";
 import { useEffect } from "react/cjs/react.production.min";
+import TempMappingComponent from "../components/TempMappingComponent";
 
-function MappingScreen({ navigation, test1 }) {
-  [test1, setTest1] = useState(true);
+function MappingScreen({ navigation }) {
+  const [test1, setTest1] = useState(true);
 
   const [distance, setDistance] = useState(0);
 
@@ -35,10 +36,10 @@ function MappingScreen({ navigation, test1 }) {
 
   return (
     <View style={styles.container}>
-      <MappingComponent
+      <TempMappingComponent
         testProp={test1}
         parentCallback={handleDistanceChange}
-      ></MappingComponent>
+      ></TempMappingComponent>
       <View style={styles.detailContainer}>
         <View style={styles.textContainer}>
           <Text style={styles.text}>{inPlaceText("Distance", distance)}</Text>

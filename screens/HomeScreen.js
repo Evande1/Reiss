@@ -16,7 +16,65 @@ import Icon from "react-native-vector-icons/Ionicons";
 import MapComponent from "../components/MapComponent";
 import { AntDesign } from "@expo/vector-icons";
 import RunningScreen from "./RunningScreen";
+import DangerComponent from "../components/DangersShowcase";
 
+const newArrForDemo = [
+  { latitude: 1.3008258894991, longitude: 103.91237109094814 },
+  { latitude: 1.3006590284749904, longitude: 103.91160874551542 },
+  { latitude: 1.2997841353545796, longitude: 103.91022840407699 },
+  { latitude: 1.2993600996580468, longitude: 103.90542912160916 },
+];
+
+const dangersDemo = [
+  {
+    latitude: 1.3584168333017268,
+    longitude: 103.70746290442666,
+    danger: "High Crowd Levels",
+    time: "15 June 3PM",
+  },
+  {
+    latitude: 1.3500577333970956,
+    longitude: 103.72828007393781,
+    danger: "Road Works",
+    time: "15 June 8PM",
+  },
+  {
+    latitude: 1.3316125813561035,
+    longitude: 103.72105779063803,
+    danger: "Unsuitable For Running",
+    time: "15 June 8PM",
+  },
+  {
+    latitude: 1.3320205689299665,
+    longitude: 103.7067883579421,
+    danger: "Unsuitable For Running",
+    time: "15 June 8PM",
+  },
+  {
+    latitude: 1.3223156736659978,
+    longitude: 103.72187287348657,
+    danger: "Unsuitable For Running",
+    time: "15 June 8PM",
+  },
+  {
+    latitude: 1.3244081821764921,
+    longitude: 103.72955948083074,
+    danger: "Unsuitable For Running",
+    time: "15 June 8PM",
+  },
+  {
+    latitude: 1.3208364855403654,
+    longitude: 103.71873327350218,
+    danger: "Unsuitable For Running",
+    time: "15 June 8PM",
+  },
+  {
+    latitude: 1.3319844913167456,
+    longitude: 103.73699347652969,
+    danger: "Unsuitable For Running",
+    time: "15 June 8PM",
+  },
+];
 function HomeScreen({ navigation }) {
   const [inModalMode, setInModalMode] = useState(false);
 
@@ -49,7 +107,16 @@ function HomeScreen({ navigation }) {
       </View>
       <View style={styles.body}>
         <View style={styles.map}>
-          <MapComponent mapWidth="1" mapHeight="0.9"></MapComponent>
+          {/* <MapComponent
+            mapWidth="1"
+            mapHeight="0.9"
+            coords={newArrForDemo}
+          ></MapComponent> */}
+          <DangerComponent
+            mapWidth="1"
+            mapHeight="0.9"
+            coords={dangersDemo}
+          ></DangerComponent>
         </View>
         <View>
           <StartButtonHome

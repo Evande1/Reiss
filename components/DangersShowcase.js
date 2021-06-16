@@ -36,6 +36,18 @@ const data = {
         danger: "Unsuitable For Running",
         time: "15 June 8PM",
       },
+      {
+        latitude: 1.3320205689299665,
+        longitude: 103.7067883579421,
+        danger: "Unsuitable For Running",
+        time: "15 June 8PM",
+      },
+      {
+        latitude: 1.3223156736659978,
+        longitude: 103.72187287348657,
+        danger: "Unsuitable For Running",
+        time: "15 June 8PM",
+      },
     ],
   },
 };
@@ -50,7 +62,7 @@ const secondDestination = {
   longitude: 103.72105779063803,
 };
 
-function MapComponent({ mapWidth, mapHeight, display, coords }) {
+function DangerComponent({ mapWidth, mapHeight, display, coords }) {
   const cancelInModalMode = () => setInModalMode(false);
   const [inModalMode, setInModalMode] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState(0);
@@ -105,14 +117,13 @@ function MapComponent({ mapWidth, mapHeight, display, coords }) {
       <MapView
         style={newStyle}
         initialRegion={{
-          latitude: markers[1].latitude,
-          longitude: markers[1].longitude,
-          latitudeDelta: 0.01,
-          longitudeDelta: 0.01,
+          latitude: markers[4].latitude,
+          longitude: markers[4].longitude,
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
         }}
       >
         {/* <Marker coordinate={origin} onPress={() => setInModalMode(true)} /> */}
-        {renderedDirections}
         {renderedMarker}
       </MapView>
 
@@ -138,4 +149,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MapComponent;
+export default DangerComponent;
