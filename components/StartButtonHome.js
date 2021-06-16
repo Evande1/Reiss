@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 
-const ComponentButton = (props) => {
+const StartButtonHome = (props) => {
   const content = (
-    <View style={[styles.button, { backgroundColor: props.color }]}>
-      <Text style={styles.text}>{props.text}</Text>
+    <View style={styles.button}>
+      <Text style={styles.text}>Start</Text>
     </View>
   );
 
@@ -13,6 +13,7 @@ const ComponentButton = (props) => {
 
 const styles = StyleSheet.create({
   button: {
+    backgroundColor: "black",
     width: 300,
     padding: 20,
     borderRadius: 30,
@@ -25,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ComponentButton;
+export default StartButtonHome;

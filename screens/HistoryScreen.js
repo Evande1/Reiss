@@ -5,114 +5,162 @@ import {
   View,
   Button,
   Modal,
+  FlatList,
   TouchableOpacity,
+  Image,
 } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
 import Icon from "react-native-vector-icons/Ionicons";
 
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
-import SelectRoute from "../components/SelectRoute";
-import ComponentButton from "../components/ComponentButton";
+const arr = [
+  {
+    startTime: "Mon Jun 15 2021 10:47:27 ",
+    endTime: "Mon Jun 15 2021 10:47:27 ",
+    totalDistance: "2.42",
+    pace: "5:30",
+    title: "Monday Morning Run",
+    crowdLevel: "High",
+    dangers: "NIL",
+    remarks: "very good",
+    directions:
+      "[{'origin' : {'longitude' : '1.362063609552904' , 'latitude' : '103.69956604782682'}, 'destination' : {'longitude' : '1.3367505787994702' , 'latitude' : '103.72342697847203'}  }]",
+  },
+  {
+    startTime: "Tue Jun 16 2021 10:47:27  ",
+    endTime: "Tue Jun 16 2021 10:47:27  ",
+    totalDistance: "2.42",
+    pace: "5:30",
+    title: "Tuesday Morning Run",
+    crowdLevel: "High",
+    dangers: "NIL",
+    remarks: "very good",
+    directions:
+      "[{'origin' : {'longitude' : '1.362063609552904' , 'latitude' : '103.69956604782682'}, 'destination' : {'longitude' : '1.3367505787994702' , 'latitude' : '103.72342697847203'}  }]",
+  },
+  {
+    startTime: "Wed Jun 17 2021 10:47:27  ",
+    endTime: "Wed Jun 17 2021 10:47:27  ",
+    totalDistance: "2.42",
+    pace: "5:30",
+    title: "Wednesday Morning Run",
+    crowdLevel: "High",
+    dangers: "NIL",
+    remarks: "very good",
+    directions:
+      "[{'origin' : {'longitude' : '1.362063609552904' , 'latitude' : '103.69956604782682'}, 'destination' : {'longitude' : '1.3367505787994702' , 'latitude' : '103.72342697847203'}  }]",
+  },
+];
 
-function HomeScreen({ navigation }) {
-  const [inModalMode, setInModalMode] = useState(false);
-
-  const cancelInModalMode = () => setInModalMode(false);
-
-  const username = "JYP";
-  const text1 = `Good Morning ${username}`.toUpperCase();
-  const text2 = "The grind don't stop".toUpperCase();
-
+const FlatListHeader = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}> App Name</Text>
-      </View>
+    <View
+      elevation={1}
+      style={{
+        height: 100,
+        width: 1000,
+        margin: 5,
+        backgroundColor: "#fff",
+        alignSelf: "center",
+      }}
+    >
+      <Text
+        style={{
+          fontSize: 40,
+          fontWeight: "800",
+          flex: 1,
+          alignSelf: "center",
+          paddingTop: 30,
+          fontSize: 40,
+        }}
+      >
+        Recent Runs
+      </Text>
+    </View>
+  );
+};
 
-      <View style={styles.startPopUp}>
-        <View>
-          <Text style={styles.startPopUpText1}>{text1}</Text>
-          <Text style={styles.startPopUpText2}>{text2}</Text>
-        </View>
-        <ComponentButton
-          text="Start"
-          color="black"
-          onPress={() => setInModalMode(true)}
+function HistoryScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <FlatList
+          data={arr}
+          renderItem={({ item }) => (
+            <View style={styles.container}>
+              <TouchableOpacity>
+                <View style={styles.itemContainer}>
+                  <View>
+                    <Text style={styles.text}>{item.title}</Text>
+                    <Text>
+                      {"\n"}
+                      {item.startTime}
+                      {"\n"}Crowd Level:{" "}
+                    </Text>
+                    <Text style={styles.text}>
+                      {item.crowdLevel}
+                      {"\n"}
+                    </Text>
+                    <Text>Dangers:</Text>
+                    <Text style={styles.text}>{item.dangers}</Text>
+                    <Text>
+                      {"\n"}
+                      Pace: {item.pace}
+                      {"\n"}
+                      Total Distance: {item.totalDistance}
+                    </Text>
+                  </View>
+                  <View>
+                    <Image
+                      style={styles.image}
+                      source={{
+                        uri: "https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697%27%7D%7D/%3E",
+                      }}
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            </View>
+          )}
+          ListHeaderComponent={FlatListHeader}
         />
-        <SelectRoute visible={inModalMode} onCancel={cancelInModalMode} />
       </View>
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+
+  itemContainer: {
+    flexDirection: "row",
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
     marginTop: 15,
-    padding: 20,
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
     justifyContent: "space-between",
-  },
-
-  header: {
-    width: "100%",
-    maxHeight: "10%",
-    flex: 1,
-    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#1D2027",
-  },
-
-  headerText: {
-    fontWeight: "bold",
-    color: "white",
-  },
-
-  startPopUp: {
+    borderColor: "black",
+    backgroundColor: "white",
     width: "100%",
-    maxHeight: "30%",
-    backgroundColor: "#f48731",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-evenly",
+    height: 300,
   },
 
-  startPopUpText1: {
-    color: "black",
+  text: {
     fontWeight: "bold",
-    fontSize: 30,
   },
 
-  startPopUpText2: {
-    color: "black",
-    fontSize: 20,
-  },
-
-  startButton: {
-    width: "80%",
-    backgroundColor: "black",
-    color: "white",
-    padding: 20,
-    borderRadius: 30,
+  image: {
+    width: 100,
+    height: 100,
   },
 });
 
-// function HomeScreen({ navigation }) {
-//   return (
-//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//       <Button
-//         onPress={() => navigation.navigate('Notifications')}
-//         title='Go to notifications'
-//       />
-//       <Button onPress={() => navigation.openDrawer()} title='open ' />
-//     </View>
-//   );
-// }
-const HomeStack = createStackNavigator();
-const HomeStackScreen = ({ navigation }) => (
-  <HomeStack.Navigator
+const HistoryStack = createStackNavigator();
+const HistoryStackScreen = ({ navigation }) => (
+  <HistoryStack.Navigator
     screenOptions={{
       headerStyle: {
         backgroundColor: "#009387",
@@ -123,11 +171,11 @@ const HomeStackScreen = ({ navigation }) => (
       },
     }}
   >
-    <HomeStack.Screen
-      name="Home"
-      component={HomeScreen}
+    <HistoryStack.Screen
+      name="History"
+      component={HistoryScreen}
       options={{
-        title: "Home",
+        title: "History",
         headerLeft: () => (
           <Icon.Button
             name="ios-menu"
@@ -138,7 +186,8 @@ const HomeStackScreen = ({ navigation }) => (
         ),
       }}
     />
-  </HomeStack.Navigator>
+  </HistoryStack.Navigator>
 );
 
-export default HomeStackScreen;
+export default HistoryStackScreen;
+

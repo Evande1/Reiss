@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import MapViewDirections from 'react-native-maps-directions';
-import MapView, { Marker } from 'react-native-maps';
-import { ActivityIndicator } from 'react-native';
-import * as Location from 'expo-location';
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
+import MapViewDirections from "react-native-maps-directions";
+import MapView, { Marker } from "react-native-maps";
+import { ActivityIndicator } from "react-native";
+import * as Location from "expo-location";
 
-const GOOGLE_MAPS_APIKEY = 123;
-
-function MappingComponent() {
+function MappingComponent({ testProp }) {
+  console.log(testProp);
   // loading state
   // distance state
   const [distance, setDistance] = useState(0);
 
   const [markers, setMarkers] = useState([]);
-  const renderedDirections = [];
+  let renderedDirections = [];
   const renderedMarker = [];
 
   // this whole portion below is to get the current location of the person.  I console.log the data so you can see it in the terminal.
@@ -22,8 +21,8 @@ function MappingComponent() {
 
   const getLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== 'granted') {
-      setErrorMsg('Permission to access location was denied');
+    if (status !== "granted") {
+      setErrorMsg("Permission to access location was denied");
       return;
     }
 
@@ -38,9 +37,14 @@ function MappingComponent() {
   };
 
   useEffect(() => {
+    renderedDirections = [];
+    setMarkers([markers[0]]);
+  }, [testProp]);
+
+  useEffect(() => {
     getLocation();
   }, []);
-  let text = 'Waiting..';
+  let text = "Waiting..";
   if (errorMsg) {
     text = errorMsg;
   } else if (location) {
@@ -66,14 +70,26 @@ function MappingComponent() {
             destination={markers[i + 1]}
             apikey={GOOGLE_MAPS_APIKEY}
             strokeWidth={4}
-            strokeColor={'#007fff'}
+            strokeColor={"#007fff"}
             onReady={(result) => setDistance(distance + result.distance)}
           />
         );
       }
     }
   }
-  if (text === 'Waiting..') {
+  const CustomMarker = () => (
+    <View
+      style={{
+        paddingVertical: 5,
+        backgroundColor: "#007bff",
+        borderColor: "#eee",
+        borderRadius: 5,
+      }}
+    >
+      <Text style={{ color: "#fff" }}>Berlin</Text>
+    </View>
+  );
+  if (text === "Waiting..") {
     return (
       <View>
         <ActivityIndicator />
@@ -104,10 +120,17 @@ function MappingComponent() {
         {renderedDirections}
         {renderedMarker}
         {/* Example of marker coordinate */}
-        {/* <Marker coordinate={origin} /> */}
+        <Marker
+          coordinate={{
+            latitude: 1.3493511621188985,
+            longitude: 103.72356312969188,
+          }}
+        >
+          <CustomMarker />
+        </Marker>
       </MapView>
       {/* need to add further styling */}
-      <Text>Distance: {distance}</Text>
+      {/* <Text>Distance: {distance}</Text> */}
     </View>
   );
 }
@@ -115,14 +138,14 @@ function MappingComponent() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
   map: {
-    width: Dimensions.get('window').width,
+    width: Dimensions.get("window").width,
     // 80% of the screen takes on the height. so there is 20% space left at the bottom for you to fit things in.
-    height: Dimensions.get('window').height * 0.8,
+    height: Dimensions.get("window").height * 0.75,
   },
 });
 
