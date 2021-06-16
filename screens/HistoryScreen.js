@@ -59,7 +59,7 @@ const FlatListHeader = () => {
       style={{
         height: 100,
         width: 1000,
-        margin: 5,
+        margin: 0,
         backgroundColor: "#fff",
         alignSelf: "center",
       }}
@@ -163,7 +163,7 @@ const HistoryStackScreen = ({ navigation }) => (
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
-        fontWeight: "bold",
+        fontWeight: "800",
         color: "#f25260",
         fontSize: 20,
       },

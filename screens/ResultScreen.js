@@ -28,146 +28,155 @@ function ResultScreen({ navigation }) {
         flex: 1,
       }}
     >
-      <View style={styles.time}>
-        <View style={styles.resultbig}>
-          <View>
-            <Ionicons name="time-outline" size={36} color="black" />
+      <View
+      style={{
+        height:400,
+      }}>
+        <View style={styles.time}>
+          <View style={styles.resultbig}>
+            <View>
+              <Ionicons name="time-outline" size={36} color="black" />
+            </View>
+            <View style={{ alignContent: "center" }}>
+              <Text style={styles.bigtext}>'12,25'</Text>
+            </View>
           </View>
-          <View style={{ alignContent: "center" }}>
-            <Text style={styles.bigtext}>'12,25'</Text>
+
+          <View style={styles.resultbig}>
+            <View>
+              <FontAwesome5 name="walking" size={38} color="black" />
+            </View>
+            <View style={{ alignContent: "center" }}>
+              <Text style={styles.bigtext}>2.40km</Text>
+            </View>
           </View>
         </View>
 
-        <View style={styles.resultbig}>
-          <View>
-            <FontAwesome5 name="walking" size={38} color="black" />
-          </View>
-          <View style={{ alignContent: "center" }}>
-            <Text style={styles.bigtext}>2.40km</Text>
-          </View>
-        </View>
-      </View>
-
-      <View style={styles.report}>
-        <View
-          style={{
-            alignItems: "center",
-            fontSize: 24,
-            fontWeight: "800",
-            flex: 0.4,
-          }}
-        >
-          <View>
-            <Text style={{ fontSize: 17, fontWeight: "800" }}>Report</Text>
-          </View>
-        </View>
-
-        <View style={{ flex: 3 }}>
+        <View style={styles.report}>
           <View
-            style={{ flexDirection: "row", justifyContent: "space-evenly" }}
+            style={{
+              alignItems: "center",
+              fontSize: 24,
+              fontWeight: "800",
+              flex: 0.4,
+            }}
           >
-            <View style={{ flex: 1.5, alignItems: "flex-end", marginRight: 8 }}>
-              <Text
-                style={{
-                  fontSize: 15,
-                  fontWeight: "800",
-                  alignItems: "center",
-                  alignContent: "center",
-                }}
-              >
-                Crowd Level:
-              </Text>
-            </View>
-
-            <View style={{ flex: 1.5 }}>
-              <TouchableOpacity style={styles.question}>
-                <Text style={{ fontSize: 15 }}>high</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={{ flex: 1.5 }}>
-              <TouchableOpacity style={styles.question}>
-                <Text style={{ fontSize: 15 }}>med</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={{ flex: 1.5 }}>
-              <TouchableOpacity style={styles.question}>
-                <Text style={{ fontSize: 15 }}>low</Text>
-              </TouchableOpacity>
+            <View>
+              <Text style={{ fontSize: 17, fontWeight: "800" }}>Report</Text>
             </View>
           </View>
 
-          <View>
-            <Text>{"\n"}</Text>
-          </View>
-
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-evenly" }}
-          >
-            <View style={{ flex: 1.5, alignItems: "flex-end", marginRight: 8 }}>
-              <Text
-                style={{
-                  fontSize: 15,
-                  fontWeight: "800",
-                  alignItems: "center",
-                  alignContent: "center",
-                }}
+          <View style={{ flex: 3 }}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-evenly" }}
+            >
+              <View
+                style={{ flex: 1.5, alignItems: "flex-end", marginRight: 8 }}
               >
-                Dangers:
-              </Text>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontWeight: "800",
+                    alignItems: "center",
+                    alignContent: "center",
+                  }}
+                >
+                  Crowd Level:
+                </Text>
+              </View>
+
+              <View style={{ flex: 1.5 }}>
+                <TouchableOpacity style={styles.question}>
+                  <Text style={{ fontSize: 15 }}>high</Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={{ flex: 1.5 }}>
+                <TouchableOpacity style={styles.question}>
+                  <Text style={{ fontSize: 15 }}>med</Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={{ flex: 1.5 }}>
+                <TouchableOpacity style={styles.question}>
+                  <Text style={{ fontSize: 15 }}>low</Text>
+                </TouchableOpacity>
+              </View>
             </View>
 
-            <View style={{ flex: 1.5 }}>
-              <TouchableOpacity style={styles.question}>
-                <Text style={{ fontSize: 15 }}>NIL</Text>
-              </TouchableOpacity>
+            <View>
+              <Text>{"\n"}</Text>
             </View>
 
-            <View style={{ flex: 1.5 }}>
-              <TouchableOpacity style={styles.question}>
-                <Text style={{ fontSize: 15 }}>Yes</Text>
-              </TouchableOpacity>
-            </View>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-evenly" }}
+            >
+              <View
+                style={{ flex: 1.5, alignItems: "flex-end", marginRight: 8 }}
+              >
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontWeight: "800",
+                    alignItems: "center",
+                    alignContent: "center",
+                  }}
+                >
+                  Dangers:
+                </Text>
+              </View>
 
-            <View style={{ flex: 1.5 }}>
+              <View style={{ flex: 1.5 }}>
+                <TouchableOpacity style={styles.question}>
+                  <Text style={{ fontSize: 15 }}>NIL</Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={{ flex: 1.5 }}>
+                <TouchableOpacity style={styles.question}>
+                  <Text style={{ fontSize: 15 }}>Yes</Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={{ flex: 1.5 }}>
                 <Text></Text>
-            </View>
-          </View>
-
-          <View>
-            <Text>{"\n"}</Text>
-          </View>
-
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-evenly" }}
-          >
-            <View style={{ flex: 1, alignItems: "flex-end", marginRight: 8 }}>
-              <Text
-                style={{
-                  fontSize: 15,
-                  fontWeight: "800",
-                  alignItems: "center",
-                  alignContent: "center",
-                }}
-              >
-                Remarks:
-              </Text>
+              </View>
             </View>
 
-            <View style={{ flex: 3 }}>
-              <TouchableOpacity
-                style={{
-                  padding: 1,
-                  backgroundColor: "#EB9393",
-                  borderRadius: 23,
-                  alignItems: "center",
-                  width:'98%',
-                  height:'60%'
-                }}
-              >
-                <Text style={{ fontSize: 15 }}>remarks</Text>
-              </TouchableOpacity>
+            <View>
+              <Text>{"\n"}</Text>
+            </View>
+
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-evenly" }}
+            >
+              <View style={{ flex: 1, alignItems: "flex-end", marginRight: 8 }}>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontWeight: "800",
+                    alignItems: "center",
+                    alignContent: "center",
+                  }}
+                >
+                  Remarks:
+                </Text>
+              </View>
+
+              <View style={{ flex: 3 }}>
+                <TouchableOpacity
+                  style={{
+                    padding: 1,
+                    backgroundColor: "#EB9393",
+                    borderRadius: 23,
+                    alignItems: "center",
+                    width: "98%",
+                    height: "60%",
+                  }}
+                >
+                  <Text style={{ fontSize: 15 }}>remarks</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </View>
@@ -215,7 +224,7 @@ const ResultStackScreen = ({ navigation }) => (
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
-        fontWeight: "bold",
+        fontWeight: "800",
         color: "#f25260",
         fontSize: 20,
       },
