@@ -11,8 +11,7 @@ import {
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Icon from "react-native-vector-icons/Ionicons";
-import MapComponent from '../components/MapComponent';
-
+import MapComponent from "../components/MapComponent";
 
 const arr = [
   {
@@ -102,8 +101,7 @@ function PastRoutesScreen({ navigation }) {
                     </Text>
                   </View>
                   <View>
-                   <MapComponent mapWidth='0.5' mapHeight='0.3'></MapComponent>
-
+                    <MapComponent mapWidth="0.5" mapHeight="0.3"></MapComponent>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -112,7 +110,7 @@ function PastRoutesScreen({ navigation }) {
           ListHeaderComponent={FlatListHeader}
         />
       </View>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
+      
     </View>
   );
 }
@@ -150,12 +148,15 @@ const PastRoutesStack = createStackNavigator();
 const PastRoutesStackScreen = ({ navigation }) => (
   <PastRoutesStack.Navigator
     screenOptions={{
+      headerTitle: "History",
       headerStyle: {
-        backgroundColor: "#009387",
+        backgroundColor: "white",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
         fontWeight: "bold",
+        color: "#f25260",
+        fontSize: 20,
       },
     }}
   >
@@ -168,7 +169,8 @@ const PastRoutesStackScreen = ({ navigation }) => (
           <Icon.Button
             name="ios-menu"
             size={25}
-            backgroundColor="#009387"
+            backgroundColor="white"
+            color="black"
             onPress={() => navigation.openDrawer()}
           ></Icon.Button>
         ),

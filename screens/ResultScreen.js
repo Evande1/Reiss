@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Modal, TouchableOpacity } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { FontAwesome5 } from "@expo/vector-icons"; 
-import { Ionicons } from "@expo/vector-icons"; 
-
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Modal,
+  TouchableOpacity,
+} from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Icon from "react-native-vector-icons/Ionicons";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 import Animated from 'react-native-reanimated';
 import BottomSheet from 'reanimated-bottom-sheet';
+import MapComponent from '../components/MapComponent';
+
 
 function ResultScreen({ navigation }) {
   const renderHeader = () => (
@@ -162,24 +170,27 @@ function ResultScreen({ navigation }) {
 
   return (
     <>
+    <View><MapComponent mapWidth="1" mapHeight="0.8"></MapComponent></View>
       <View
         style={{
           flex: 1,
+
           alignItems: 'center',
           justifyContent: 'center',
+          elevation:0,
         }}
       >
         <Button
-          title="Start"
+          title="Results"
           onPress={() => sheetRef.current.snapTo(0)}
         />
+
       </View>
       <BottomSheet
         ref={sheetRef}
         snapPoints={[350, 350, 0]}
         renderHeader={renderHeader}
         enableContentTapInteraction={false}
-        
       />
     </>
   );
@@ -189,25 +200,29 @@ const ResultStack = createStackNavigator();
 const ResultStackScreen = ({ navigation }) => (
   <ResultStack.Navigator
     screenOptions={{
+      headerTitle: "Result",
       headerStyle: {
-        backgroundColor: '#009387',
+        backgroundColor: "white",
       },
-      headerTintColor: '#fff',
+      headerTintColor: "#fff",
       headerTitleStyle: {
-        fontWeight: 'bold',
+        fontWeight: "bold",
+        color: "#f25260",
+        fontSize: 20,
       },
     }}
   >
     <ResultStack.Screen
-      name='Result'
+      name="Result"
       component={ResultScreen}
       options={{
-        title: 'Result',
+        title: "Result",
         headerLeft: () => (
           <Icon.Button
-            name='ios-menu'
+            name="ios-menu"
             size={25}
-            backgroundColor='#009387'
+            backgroundColor="white"
+            color="black"
             onPress={() => navigation.openDrawer()}
           ></Icon.Button>
         ),
@@ -234,16 +249,16 @@ const styles = StyleSheet.create({
   },
   report: {
     width: "100%",
-    justifyContent:'center',
-    flex:2,
+    justifyContent: "center",
+    flex: 2,
   },
   question: {
-     width: 83,
-     height: 20,
-     padding: 1,
-     backgroundColor: "#EB9393",
-     borderRadius:23,
-     alignItems: "center",
+    width: 83,
+    height: 20,
+    padding: 1,
+    backgroundColor: "#EB9393",
+    borderRadius: 23,
+    alignItems: "center",
   },
 
   header: {
@@ -254,4 +269,3 @@ const styles = StyleSheet.create({
 });
 
 export default ResultStackScreen;
-

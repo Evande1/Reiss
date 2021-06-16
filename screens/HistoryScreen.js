@@ -11,8 +11,7 @@ import {
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Icon from "react-native-vector-icons/Ionicons";
-import MapComponent from '../components/MapComponent';
-
+import MapComponent from "../components/MapComponent";
 
 const arr = [
   {
@@ -112,8 +111,7 @@ function HistoryScreen({ navigation }) {
                     </Text>
                   </View>
                   <View>
-                   <MapComponent mapWidth='0.5' mapHeight='0.3'></MapComponent>
-
+                    <MapComponent mapWidth="0.5" mapHeight="0.3"></MapComponent>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -122,7 +120,7 @@ function HistoryScreen({ navigation }) {
           ListHeaderComponent={FlatListHeader}
         />
       </View>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
+      
     </View>
   );
 }
@@ -161,11 +159,13 @@ const HistoryStackScreen = ({ navigation }) => (
   <HistoryStack.Navigator
     screenOptions={{
       headerStyle: {
-        backgroundColor: "#009387",
+        backgroundColor: "white",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
         fontWeight: "bold",
+        color: "#f25260",
+        fontSize: 20,
       },
     }}
   >
@@ -178,7 +178,8 @@ const HistoryStackScreen = ({ navigation }) => (
           <Icon.Button
             name="ios-menu"
             size={25}
-            backgroundColor="#009387"
+            backgroundColor="white"
+            color="black"
             onPress={() => navigation.openDrawer()}
           ></Icon.Button>
         ),
@@ -188,4 +189,3 @@ const HistoryStackScreen = ({ navigation }) => (
 );
 
 export default HistoryStackScreen;
-
