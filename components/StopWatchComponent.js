@@ -1,8 +1,9 @@
-import React, { useState, useRef } from 'react';
-import { Button, View, Text } from 'react-native';
+import React, { useState, useRef } from "react";
+import { Button, View, Text, StyleSheet } from "react-native";
+import { block } from "react-native-reanimated";
 
 const StopWatch = () => {
-  const [timer, setTimer] = useState(3595);
+  const [timer, setTimer] = useState(700);
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const increment = useRef(null);
@@ -43,18 +44,32 @@ const StopWatch = () => {
   };
 
   return (
-    <View>
-      <Text>{formatTime()}</Text>
+    <View style={styles.timerContainer}>
+      <Text style={styles.normalText}>{formatTime()}</Text>
       {!isActive && !isPaused ? (
-        <Button title='Start' onPress={handleStart}></Button>
+        <Button title="Start" onPress={handleStart}></Button>
       ) : isPaused ? (
-        <Button title='Pause' onPress={handlePause}></Button>
+        <Button title="Pause" onPress={handlePause}></Button>
       ) : (
-        <Button title='Resume ' onPress={handleResume}></Button>
+        <Button title="Resume " onPress={handleResume}></Button>
       )}
-      <Button title='Reset' onPress={handleReset} disabled={!isActive}></Button>
+      <Button title="Reset" onPress={handleReset} disabled={!isActive}></Button>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  normalText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "black",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+
+  teststyles: {
+    fontSize: 40,
+  },
+});
 
 export default StopWatch;
