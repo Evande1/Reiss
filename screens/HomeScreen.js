@@ -14,11 +14,27 @@ import SelectRoute from "../components/SelectRoute";
 import StartButtonHome from "../components/StartButtonHome";
 import Icon from "react-native-vector-icons/Ionicons";
 import MapComponent from "../components/MapComponent";
+import { AntDesign } from "@expo/vector-icons";
 
 function HomeScreen({ navigation }) {
   const [inModalMode, setInModalMode] = useState(false);
 
   const cancelInModalMode = () => setInModalMode(false);
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <AntDesign
+          name="pluscircleo"
+          size={24}
+          color="white"
+          onPress={() =>
+            navigation.navigate("Mapping", { screen: "MappingScreen" })
+          }
+        />
+      ),
+    });
+  }, []);
 
   const SelectRoutes = () => {
     cancelInModalMode();
@@ -36,7 +52,7 @@ function HomeScreen({ navigation }) {
           <Text style={styles.startPopUpText1}>{text1}</Text>
           <Text style={styles.startPopUpText2}>{text2}</Text>
         </View>
-        <MapComponent></MapComponent>
+        <MapComponent mapWidth="1" mapHeight="1"></MapComponent>
         <StartButtonHome
           text="Start"
           color="black"
