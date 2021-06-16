@@ -7,15 +7,15 @@ function RunningScreen() {
     <View style={styles.container}>
       <View style={styles.pace}>
         <View>
-          <Text style={styles.heading}>4:43</Text>
+          <Text style={styles.heading}>00:00</Text>
           <Text style={styles.paceDetails}>Average pace</Text>
         </View>
         <View>
-          <Text style={styles.heading}>5:15</Text>
+          <Text style={styles.heading}>00:00</Text>
           <Text style={styles.paceDetails}>Current Pace</Text>
         </View>
       </View>
-      <Text style={styles.distance}>2.53</Text>
+      <Text style={styles.distance}>0</Text>
       <Text style={styles.distanceMatric}>Kilometers</Text>
       <View style={styles.bottom}>
         <StopWatch></StopWatch>

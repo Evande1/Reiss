@@ -93,7 +93,10 @@ function FeedScreen({ navigation }) {
                     </Text>
                   </View>
                   <View style={{ flex: 1 }}>
-                    <MapComponent mapWidth="0.5" mapHeight="0.3"></MapComponent>
+                    <MapComponent
+                      mapWidth="0.47"
+                      mapHeight="0.3"
+                    ></MapComponent>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -143,17 +146,18 @@ const FeedStackScreen = ({ navigation }) => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 22,
+    paddingTop: 5,
+    marginLeft: 2,
+    marginRight: 2,
   },
   tag: {
     borderWidth: 1,
     borderRadius: 10,
     borderColor: "black",
     backgroundColor: "white",
-    width: "100%",
-    height: "90%",
+    width: "98%",
+    height: 250,
     padding: 3,
-    marginTop: 10,
   },
   itemContainer: {
     flexDirection: "row",
@@ -165,8 +169,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: "black",
     backgroundColor: "white",
-    width: "100%",
-    height: 300,
+    width: "98%",
+    height: 250,
   },
 });
 
