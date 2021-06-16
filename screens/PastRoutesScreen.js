@@ -1,69 +1,118 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Modal, FlatList } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Icon from 'react-native-vector-icons/Ionicons';
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Modal,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Icon from "react-native-vector-icons/Ionicons";
+import MapComponent from '../components/MapComponent';
+
 
 const arr = [
   {
-    startTime: 'Tue Jun 15 2021 10:47:27 GMT+0800',
-    endTime: 'Tue Jun 15 2021 10:47:27 GMT+0800',
-    totalDistance: '2.42',
-    pace: '5:30',
-    title: 'Monday Morning Run',
-    crowdLevel: 'High',
-    dangers: 'NIL',
-    remarks: 'very good',
+    startTime: "Mon Jun 15 2021 10:47:27 ",
+    endTime: "Mon Jun 15 2021 10:47:27 ",
+    totalDistance: "2.42",
+    pace: "5:30",
+    title: "Monday Morning Run",
+    crowdLevel: "High",
+    dangers: "NIL",
+    remarks: "very good",
     directions:
       "[{'origin' : {'longitude' : '1.362063609552904' , 'latitude' : '103.69956604782682'}, 'destination' : {'longitude' : '1.3367505787994702' , 'latitude' : '103.72342697847203'}  }]",
   },
   {
-    startTime: 'Tue Jun 15 2021 10:47:27 GMT+0800',
-    endTime: 'Tue Jun 15 2021 10:47:27 GMT+0800',
-    totalDistance: '2.42',
-    pace: '5:30',
-    title: 'Monday Morning Run',
-    crowdLevel: 'High',
-    dangers: 'NIL',
-    remarks: 'very good',
+    startTime: "Tue Jun 16 2021 10:47:27  ",
+    endTime: "Tue Jun 16 2021 10:47:27  ",
+    totalDistance: "2.42",
+    pace: "5:30",
+    title: "Tuesday Morning Run",
+    crowdLevel: "High",
+    dangers: "NIL",
+    remarks: "very good",
     directions:
       "[{'origin' : {'longitude' : '1.362063609552904' , 'latitude' : '103.69956604782682'}, 'destination' : {'longitude' : '1.3367505787994702' , 'latitude' : '103.72342697847203'}  }]",
   },
   {
-    startTime: 'Tue Jun 15 2021 10:47:27 GMT+0800',
-    endTime: 'Tue Jun 15 2021 10:47:27 GMT+0800',
-    totalDistance: '2.42',
-    pace: '5:30',
-    title: 'Monday Morning Run',
-    crowdLevel: 'High',
-    dangers: 'NIL',
-    remarks: 'very good',
+    startTime: "Wed Jun 17 2021 10:47:27  ",
+    endTime: "Wed Jun 17 2021 10:47:27  ",
+    totalDistance: "2.42",
+    pace: "5:30",
+    title: "Wednesday Morning Run",
+    crowdLevel: "High",
+    dangers: "NIL",
+    remarks: "very good",
     directions:
       "[{'origin' : {'longitude' : '1.362063609552904' , 'latitude' : '103.69956604782682'}, 'destination' : {'longitude' : '1.3367505787994702' , 'latitude' : '103.72342697847203'}  }]",
   },
 ];
 
-function PastRoutesScreen({ navigation }) {
-  const renderedArr = [];
-  // for( let i = 0 ; i < arr.length ;i++ ) {
-  //   renderedArr.push(
-
-  //   )
-  // }
+const FlatListHeader = () => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View
+      elevation={1}
+      style={{
+        height: 100,
+        width: 1000,
+        margin: 5,
+        backgroundColor: "#fff",
+        alignSelf: "center",
+      }}
+    >
+      <Text
+        style={{
+          fontSize: 40,
+          fontWeight: "800",
+          flex: 1,
+          alignSelf: "center",
+          paddingTop: 30,
+          fontSize: 40,
+        }}
+      >
+        Saved Routes
+      </Text>
+    </View>
+  );
+};
+
+function PastRoutesScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1 }}>
       <View style={styles.container}>
         <FlatList
           data={arr}
           renderItem={({ item }) => (
-            <View>
-              <Text style={styles.item}>{item.startTime}</Text>
-              <Text style={styles.item}>{item.totalDistance}</Text>
+            <View style={styles.container}>
+              <TouchableOpacity>
+                <View style={styles.itemContainer}>
+                  <View>
+                    <Text style={styles.text}>{item.title}</Text>
+                    <Text>
+                      Pace: {item.pace}
+                      {"\n"}
+                      Total Distance: {item.totalDistance}
+                      {"\n"}
+                      Remarks: {item.remarks}
+                    </Text>
+                  </View>
+                  <View>
+                   <MapComponent mapWidth='0.5' mapHeight='0.3'></MapComponent>
+
+                  </View>
+                </View>
+              </TouchableOpacity>
             </View>
           )}
+          ListHeaderComponent={FlatListHeader}
         />
       </View>
-      <Text>Hi</Text>
-      <Button onPress={() => navigation.goBack()} title='Go back home' />
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
     </View>
   );
 }
@@ -71,38 +120,55 @@ function PastRoutesScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 22,
   },
-  item: {
+
+  itemContainer: {
+    flexDirection: "row",
+    borderWidth: 1,
+    borderRadius: 10,
     padding: 10,
-    fontSize: 18,
-    height: 44,
+    marginTop: 15,
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderColor: "black",
+    backgroundColor: "white",
+    width: "100%",
+    height: 300,
+  },
+
+  text: {
+    fontWeight: "bold",
+  },
+
+  image: {
+    width: 100,
+    height: 100,
   },
 });
-const PastRoutesStack = createStackNavigator();
 
+const PastRoutesStack = createStackNavigator();
 const PastRoutesStackScreen = ({ navigation }) => (
   <PastRoutesStack.Navigator
     screenOptions={{
       headerStyle: {
-        backgroundColor: '#009387',
+        backgroundColor: "#009387",
       },
-      headerTintColor: '#fff',
+      headerTintColor: "#fff",
       headerTitleStyle: {
-        fontWeight: 'bold',
+        fontWeight: "bold",
       },
     }}
   >
     <PastRoutesStack.Screen
-      name='PastRoutes'
+      name="History"
       component={PastRoutesScreen}
       options={{
-        title: 'PastRoutes',
+        title: "History",
         headerLeft: () => (
           <Icon.Button
-            name='ios-menu'
+            name="ios-menu"
             size={25}
-            backgroundColor='#009387'
+            backgroundColor="#009387"
             onPress={() => navigation.openDrawer()}
           ></Icon.Button>
         ),
