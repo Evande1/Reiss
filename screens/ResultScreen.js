@@ -12,16 +12,15 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
-import Animated from 'react-native-reanimated';
-import BottomSheet from 'reanimated-bottom-sheet';
-import MapComponent from '../components/MapComponent';
-
+import Animated from "react-native-reanimated";
+import BottomSheet from "reanimated-bottom-sheet";
+import MapComponent from "../components/MapComponent";
 
 function ResultScreen({ navigation }) {
   const renderHeader = () => (
     <View
       style={{
-        backgroundColor: "#F84061",
+        backgroundColor: "#FF576B",
         padding: 5,
         height: 400,
         borderRadius: 34,
@@ -29,22 +28,33 @@ function ResultScreen({ navigation }) {
       }}
     >
       <View
-      style={{
-        height:400,
-      }}>
+        style={{
+          height: 400,
+        }}
+      >
         <View style={styles.time}>
           <View style={styles.resultbig}>
             <View>
-              <Ionicons name="time-outline" size={36} color="black" />
+              <Ionicons
+                name="time-outline"
+                size={36}
+                color="black"
+                style={{ marginTop: 8 }}
+              />
             </View>
             <View style={{ alignContent: "center" }}>
-              <Text style={styles.bigtext}>'12,25'</Text>
+              <Text style={styles.bigtext}>12:25</Text>
             </View>
           </View>
 
           <View style={styles.resultbig}>
             <View>
-              <FontAwesome5 name="walking" size={38} color="black" />
+              <FontAwesome5
+                name="walking"
+                size={38}
+                color="black"
+                style={{ marginTop: 8, marginRight: 8 }}
+              />
             </View>
             <View style={{ alignContent: "center" }}>
               <Text style={styles.bigtext}>2.40km</Text>
@@ -53,19 +63,6 @@ function ResultScreen({ navigation }) {
         </View>
 
         <View style={styles.report}>
-          <View
-            style={{
-              alignItems: "center",
-              fontSize: 24,
-              fontWeight: "800",
-              flex: 0.4,
-            }}
-          >
-            <View>
-              <Text style={{ fontSize: 17, fontWeight: "800" }}>Report</Text>
-            </View>
-          </View>
-
           <View style={{ flex: 3 }}>
             <View
               style={{ flexDirection: "row", justifyContent: "space-evenly" }}
@@ -87,19 +84,19 @@ function ResultScreen({ navigation }) {
 
               <View style={{ flex: 1.5 }}>
                 <TouchableOpacity style={styles.question}>
-                  <Text style={{ fontSize: 15 }}>high</Text>
+                  <Text style={{ fontSize: 15 }}>High</Text>
                 </TouchableOpacity>
               </View>
 
               <View style={{ flex: 1.5 }}>
                 <TouchableOpacity style={styles.question}>
-                  <Text style={{ fontSize: 15 }}>med</Text>
+                  <Text style={{ fontSize: 15 }}>Med</Text>
                 </TouchableOpacity>
               </View>
 
               <View style={{ flex: 1.5 }}>
                 <TouchableOpacity style={styles.question}>
-                  <Text style={{ fontSize: 15 }}>low</Text>
+                  <Text style={{ fontSize: 15 }}>Low</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -128,13 +125,13 @@ function ResultScreen({ navigation }) {
 
               <View style={{ flex: 1.5 }}>
                 <TouchableOpacity style={styles.question}>
-                  <Text style={{ fontSize: 15 }}>NIL</Text>
+                  <Text style={{ fontSize: 15 }}>Yes</Text>
                 </TouchableOpacity>
               </View>
 
               <View style={{ flex: 1.5 }}>
                 <TouchableOpacity style={styles.question}>
-                  <Text style={{ fontSize: 15 }}>Yes</Text>
+                  <Text style={{ fontSize: 15 }}>No</Text>
                 </TouchableOpacity>
               </View>
 
@@ -171,7 +168,7 @@ function ResultScreen({ navigation }) {
                     borderRadius: 23,
                     alignItems: "center",
                     width: "98%",
-                    height: "60%",
+                    height: "50%",
                   }}
                 >
                   <Text style={{ fontSize: 15 }}>remarks</Text>
@@ -188,21 +185,19 @@ function ResultScreen({ navigation }) {
 
   return (
     <>
-    <View><MapComponent mapWidth="1" mapHeight="0.8"></MapComponent></View>
+      <View>
+        <MapComponent mapWidth="1" mapHeight="0.8"></MapComponent>
+      </View>
       <View
         style={{
           flex: 1,
 
-          alignItems: 'center',
-          justifyContent: 'center',
-          elevation:0,
+          alignItems: "center",
+          justifyContent: "center",
+          elevation: 0,
         }}
       >
-        <Button
-          title="Results"
-          onPress={() => sheetRef.current.snapTo(0)}
-        />
-
+        <Button title="Results" onPress={() => sheetRef.current.snapTo(0)} />
       </View>
       <BottomSheet
         ref={sheetRef}
@@ -253,24 +248,26 @@ const styles = StyleSheet.create({
   time: {
     flexDirection: "row",
     width: "100%",
+    marginTop: 20,
     flex: 1,
+    height: "50%",
   },
 
   resultbig: {
     alignItems: "flex-start",
     flex: 1,
-    padding: 5,
+    flexDirection: "row",
+    marginBottom: 2,
   },
   bigtext: {
     fontWeight: "800",
-    fontSize: 52,
+    fontSize: 40,
   },
   report: {
     width: "100%",
 
-    justifyContent:'center',
-    flex:3,
-
+    justifyContent: "center",
+    flex: 3,
   },
   question: {
     width: 83,
@@ -279,6 +276,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EB9393",
     borderRadius: 23,
     alignItems: "center",
+    justifyContent: "center",
   },
 
   header: {
