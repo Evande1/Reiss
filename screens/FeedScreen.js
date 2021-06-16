@@ -87,7 +87,7 @@ function FeedScreen({ navigation }) {
           )}
         />
       </View>
-      <Button onPress={() => navigation.goBack()} title='Go back home' />
+      
     </View>
   );
 }
