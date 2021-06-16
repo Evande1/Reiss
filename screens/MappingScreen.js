@@ -8,6 +8,39 @@ import MapScreenButton from "../components/MapScreenButton";
 import { useEffect } from "react/cjs/react.production.min";
 import TempMappingComponent from "../components/TempMappingComponent";
 
+const coordinates = [
+  {
+    latitude: 1.3584168333017268,
+    longitude: 103.70746290442666,
+    danger: "High Crowd Levels",
+    time: "15 June 3PM",
+  },
+  {
+    latitude: 1.3500577333970956,
+    longitude: 103.72828007393781,
+    danger: "Road Works",
+    time: "15 June 8PM",
+  },
+  {
+    latitude: 1.3316125813561035,
+    longitude: 103.72105779063803,
+    danger: "Unsuitable For Running",
+    time: "15 June 8PM",
+  },
+  {
+    latitude: 1.3320205689299665,
+    longitude: 103.7067883579421,
+    danger: "Unsuitable For Running",
+    time: "15 June 8PM",
+  },
+  {
+    latitude: 1.3223156736659978,
+    longitude: 103.72187287348657,
+    danger: "Unsuitable For Running",
+    time: "15 June 8PM",
+  },
+];
+
 function MappingScreen({ navigation }) {
   const [test1, setTest1] = useState(true);
 

@@ -50,7 +50,7 @@ const secondDestination = {
   longitude: 103.72105779063803,
 };
 
-function MapComponent({ mapWidth, mapHeight, display, coords }) {
+function MapComponent({ mapWidth, mapHeight, display }) {
   const cancelInModalMode = () => setInModalMode(false);
   const [inModalMode, setInModalMode] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState(0);
@@ -59,8 +59,8 @@ function MapComponent({ mapWidth, mapHeight, display, coords }) {
     setSelectedMarker(i);
     setInModalMode(true);
   };
-  console.log(coords);
-  const [markers, setMarkers] = useState(coords);
+
+  const [markers, setMarkers] = useState(data.Route.coordinates);
   let renderedDirections = [];
   const renderedMarker = [];
   if (markers.length > 0) {
@@ -105,10 +105,10 @@ function MapComponent({ mapWidth, mapHeight, display, coords }) {
       <MapView
         style={newStyle}
         initialRegion={{
-          latitude: markers[1].latitude,
-          longitude: markers[1].longitude,
-          latitudeDelta: 0.01,
-          longitudeDelta: 0.01,
+          latitude: 1.3584168333017268,
+          longitude: 103.70746290442666,
+          latitudeDelta: 0.08,
+          longitudeDelta: 0.08,
         }}
       >
         {/* <Marker coordinate={origin} onPress={() => setInModalMode(true)} /> */}

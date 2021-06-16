@@ -127,7 +127,7 @@ function HomeScreen({ navigation }) {
         </View>
       </View>
       <SelectRoute
-        text="S art"
+        text="Start"
         visible={inModalMode}
         onCancel={cancelInModalMode}
       />

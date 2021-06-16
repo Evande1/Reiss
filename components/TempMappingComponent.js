@@ -61,6 +61,7 @@ function TempMappingComponent({ testProp, parentCallback }) {
   // loading state
   // distance state
   const cancelInModalMode = () => setInModalMode(false);
+  const [counter, setCounter] = useState(0);
   const [distance, setDistance] = useState(0);
   const [inModalMode, setInModalMode] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState(0);
