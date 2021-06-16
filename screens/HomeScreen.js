@@ -52,7 +52,7 @@ function HomeScreen({ navigation }) {
           <Text style={styles.startPopUpText1}>{text1}</Text>
           <Text style={styles.startPopUpText2}>{text2}</Text>
         </View>
-        <MapComponent></MapComponent>
+        <MapComponent mapWidth="1" mapHeight="1"></MapComponent>
         <StartButtonHome
           text="Start"
           color="black"
