@@ -50,7 +50,7 @@ const secondDestination = {
   longitude: 103.72105779063803,
 };
 
-function MapComponent() {
+function MapComponent({ mapWidth, mapHeight, display }) {
   const cancelInModalMode = () => setInModalMode(false);
   const [inModalMode, setInModalMode] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState(0);
@@ -94,11 +94,16 @@ function MapComponent() {
       }
     }
   }
+  const newStyle = StyleSheet.flatten([
+    // styles.container,
+    { width: Dimensions.get("window").width * mapWidth },
+    { height: Dimensions.get("window").height * mapHeight },
+  ]);
 
   return (
     <View>
       <MapView
-        style={styles.map}
+        style={newStyle}
         initialRegion={{
           latitude: 1.3584168333017268,
           longitude: 103.70746290442666,
