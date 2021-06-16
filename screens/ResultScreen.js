@@ -54,16 +54,19 @@ function ResultScreen({ navigation }) {
             alignItems: "center",
             fontSize: 24,
             fontWeight: "800",
+            flex: 0.4,
           }}
         >
-          <Text style={{ fontSize: 14, fontWeight: "800" }}>Report</Text>
+          <View>
+            <Text style={{ fontSize: 17, fontWeight: "800" }}>Report</Text>
+          </View>
         </View>
 
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 3 }}>
           <View
             style={{ flexDirection: "row", justifyContent: "space-evenly" }}
           >
-            <View style={{ flex: 1.5 }}>
+            <View style={{ flex: 1.5, alignItems: "flex-end", marginRight: 8 }}>
               <Text
                 style={{
                   fontSize: 15,
@@ -95,10 +98,14 @@ function ResultScreen({ navigation }) {
             </View>
           </View>
 
+          <View>
+            <Text>{"\n"}</Text>
+          </View>
+
           <View
             style={{ flexDirection: "row", justifyContent: "space-evenly" }}
           >
-            <View style={{ flex: 1.5 }}>
+            <View style={{ flex: 1.5, alignItems: "flex-end", marginRight: 8 }}>
               <Text
                 style={{
                   fontSize: 15,
@@ -107,60 +114,62 @@ function ResultScreen({ navigation }) {
                   alignContent: "center",
                 }}
               >
-                Crowd Level:
+                Dangers:
               </Text>
             </View>
 
             <View style={{ flex: 1.5 }}>
               <TouchableOpacity style={styles.question}>
-                <Text style={{ fontSize: 15 }}>high</Text>
+                <Text style={{ fontSize: 15 }}>NIL</Text>
               </TouchableOpacity>
             </View>
 
             <View style={{ flex: 1.5 }}>
               <TouchableOpacity style={styles.question}>
-                <Text style={{ fontSize: 15 }}>med</Text>
+                <Text style={{ fontSize: 15 }}>Yes</Text>
               </TouchableOpacity>
             </View>
 
             <View style={{ flex: 1.5 }}>
-              <TouchableOpacity style={styles.question}>
-                <Text style={{ fontSize: 15 }}>low</Text>
+                <Text></Text>
+            </View>
+          </View>
+
+          <View>
+            <Text>{"\n"}</Text>
+          </View>
+
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-evenly" }}
+          >
+            <View style={{ flex: 1, alignItems: "flex-end", marginRight: 8 }}>
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: "800",
+                  alignItems: "center",
+                  alignContent: "center",
+                }}
+              >
+                Remarks:
+              </Text>
+            </View>
+
+            <View style={{ flex: 3 }}>
+              <TouchableOpacity
+                style={{
+                  padding: 1,
+                  backgroundColor: "#EB9393",
+                  borderRadius: 23,
+                  alignItems: "center",
+                  width:'98%',
+                  height:'60%'
+                }}
+              >
+                <Text style={{ fontSize: 15 }}>remarks</Text>
               </TouchableOpacity>
             </View>
           </View>
-        </View>
-      </View>
-
-      <View>
-        <View style={{ flexDirection: "row" }}>
-          <View style={{ alignItems: "center", justifyContent: "center" }}>
-            <Text>Dangers:</Text>
-          </View>
-          <TouchableOpacity
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Text>High</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Text>Mid</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Text>Low</Text>
-          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -249,8 +258,10 @@ const styles = StyleSheet.create({
   },
   report: {
     width: "100%",
-    justifyContent: "center",
-    flex: 2,
+
+    justifyContent:'center',
+    flex:3,
+
   },
   question: {
     width: 83,
